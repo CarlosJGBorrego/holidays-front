@@ -1,0 +1,44 @@
+{
+    "login": {
+        "title": "Iniciar sessió",
+        "email": "Correu electrònic",
+        "password": "Contrasenya",
+        "signup": "Registrarme",
+        "button": "Iniciar Sessió",
+        "messageError": "Usuari o contrasenya incorrecte",
+        "loading": "Carregant",
+        "language": "Idioma"
+    },
+    "logout": "Tancar sessió",
+    "signup": {
+        "title": "Registrate",
+        "username": "Nom d'usuari",
+        "email": "Correu electrònic",
+        "password": "Contrasenya",
+        "passwordRepeat": "Repetir contrasenya",
+        "login": "Ja estic registrat",
+        "submit": "Enviar",
+        "messageError": "Email o nom d'usuari ja existeix",
+        "emailError": "El correu electrònic té una extensió incorrecta",
+        "passwordError": "Les contrasenyes contrasenyes no coincideixen"
+    },
+    "form": {
+        "logout": "Tancar sessió",
+        "yes": "Sí",
+        "no": "No",
+        "submit": "Enviar",
+        "Submitting": "Enviant",
+        "required": "El camp és obligatori"
+    },
+    "formSubmitted": {
+        "title": "El formulari s'ha enviat correctament",
+        "subtitle": "Si vols fer un altre formulari, fes clic al següent botó",
+        "button": "Tornar a fer"
+    },
+    "languages": {
+        "es": "Espanyol",
+        "en": "Anglès",
+        "fr": "Francès",
+        "ca": "Català"
+    }
+}

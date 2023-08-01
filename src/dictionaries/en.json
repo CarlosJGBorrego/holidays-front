@@ -1,0 +1,44 @@
+{
+    "login": {
+        "title": "Sign in",
+        "email": "Email",
+        "password": "Password",
+        "signup": "Sign up",
+        "button": "Sign In",
+        "messageError": "Wrong email or password",
+        "loading": "Loading",
+        "language": "Language"
+    },
+    "logout": "Logging out",
+    "signup": {
+        "title": "Register",
+        "username": "Username",
+        "email": "Email",
+        "password": "Password",
+        "passwordRepeat": "Repeat password",
+        "login": "I am already registered",
+        "submit": "Submit",
+        "messageError": "Email or username already exists",
+        "emailError": "Email has wrong extension",
+        "passwordError": "Passwords do not match"
+    },
+    "form": {
+        "logout": "Log out",
+        "yes": "Yes",
+        "no": "No",
+        "submit": "Submit",
+        "Submitting": "Submitting",
+        "required": "The field is required"
+    },
+    "formSubmitted": {
+        "title": "The form has been submitted successfully",
+        "subtitle": "If you want to make another form, click on the next button",
+        "button": "Make again"
+    },
+    "languages": {
+        "es": "Spanish",
+        "en": "English",
+        "fr": "French",
+        "ca": "Catalan"
+    }
+}

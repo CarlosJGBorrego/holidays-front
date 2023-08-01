@@ -1,0 +1,44 @@
+{
+    "login": {
+        "title": "Iniciar sesión",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "signup": "Registrarme",
+        "button": "Iniciar Sesión",
+        "messageError": "Usuario o contraseña incorrecto",
+        "loading": "Cargando",
+        "language": "Idioma"
+    },
+    "logout": "Cerrando sesión",
+    "signup": {
+        "title": "Registrate",
+        "username": "Nombre de usuario",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "passwordRepeat": "Repetir contraseña",
+        "login": "Ya estoy registrado",
+        "submit": "Enviar",
+        "messageError": "Email o nombre de usuario ya existe",
+        "emailError": "El correo electrónico tiene una extensión incorrecta",
+        "passwordError": "Las contraseñas no coinciden"
+    },
+    "form": {
+        "logout": "Cerrar sesión",
+        "yes": "Sí",
+        "no": "No",
+        "submit": "Enviar",
+        "submitting": "Enviando",
+        "required": "El campo es obligatorio"
+    },
+    "formSubmitted": {
+        "title": "El formulario se ha enviado correctamente",
+        "subtitle": "Si deseas realizar otro formulario, haz clic en el siguiente botón",
+        "button": "Volver a hacer"
+    },
+    "languages": {
+        "es": "Español",
+        "en": "Inglés",
+        "fr": "Francés",
+        "ca": "Catalán"
+    }
+}

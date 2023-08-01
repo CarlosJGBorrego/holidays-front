@@ -1,0 +1,44 @@
+{
+    "login": {
+        "title": "Connexion",
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "signup": "S'inscrire",
+        "button": "Connexion",
+        "messageError": "Nom d'utilisateur ou mot de passe invalide",
+        "loading": "Chargement",
+        "language": "Langage"
+    },
+    "logout": "Déconnecter",
+    "signup": {
+        "title": "S'inscrire",
+        "username": "Nom d'utilisateur",
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "passwordRepeat": "Répéter le mot de passe",
+        "login": "Je suis déjà inscrit",
+        "submit": "Envoyer",
+        "messageError": "L'adresse e-mail ou le nom d'utilisateur existe déjà",
+        "emailError": "L'e-mail a une mauvaise extension",
+        "passwordError": "Les mots de passe ne correspondent pas"
+    },
+    "form": {
+        "logout": "Fermer la session",
+        "yes": "Ouais",
+        "no": "Non",
+        "submit": "Envoyer",
+        "Submitting": "Envoi en cours",
+        "required": "Ce champ est requis"
+    },
+    "formSubmitted": {
+        "title": "Le formulaire a été soumis avec succès",
+        "subtitle": "Si vous souhaitez créer un autre formulaire, cliquez sur le bouton suivant",
+        "button": "Refaire"
+    },
+    "languages": {
+        "es": "Espagnol",
+        "en": "Anglais",
+        "fr": "Français",
+        "ca": "Catalan"
+    }
+}
