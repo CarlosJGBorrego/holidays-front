@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negociator from "negotiator";
 import { i18n } from "@/i18n-config";
-import { apiProfile, apiLanguages } from "@/api";
+import { apiProfile } from "@/api";
 
 function getLocale(request) {
     const negotiatorHeaders = {};
@@ -15,15 +15,15 @@ function getLocale(request) {
 export async function middleware(request) {
     // Check if there is any supported locale in the pathname
     const pathname = request.nextUrl.pathname;
+
     const pathnameIsMissingLocale = i18n.locales.every(
         (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
     );
 
     let locale = getLocale(request);
-    const availableLanguages = await apiLanguages();
 
-    if (!availableLanguages.includes(locale)) {
-        locale = availableLanguages[0];
+    if (!i18n.locales.includes(locale)) {
+        locale = "es";
     }
 
     // Redirect if there is no locale
@@ -36,9 +36,12 @@ export async function middleware(request) {
 
     const cookieName = process.env.NEXT_PUBLIC_AUTH_COOKIE_NAME;
     const authToken = request.cookies.get(cookieName)?.value;
-    const path = request.nextUrl.pathname;
 
-    if (path === `/${locale}`) {
+    if (
+        pathname.length === 3 &&
+        pathname[0] === "/" &&
+        i18n.locales.includes(pathname.substring(1, 3))
+    ) {
         if (!authToken) {
             return NextResponse.next();
         } else {
@@ -53,7 +56,7 @@ export async function middleware(request) {
         }
     }
 
-    if ((path.includes("/panel") && !authToken) || path.includes("/logout")) {
+    if ((pathname.includes("/panel") && !authToken) || pathname.includes("/logout")) {
         const response = NextResponse.redirect(new URL(`/${locale}`, request.url));
         response.cookies.delete(cookieName);
         return response;
