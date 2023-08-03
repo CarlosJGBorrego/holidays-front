@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Profile from "./components/Profile";
+import { usePathname } from "next/navigation";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
@@ -21,18 +22,19 @@ interface Props {
 }
 
 export default function Panel({ lang, children }: Props) {
+    const pathname = usePathname();
     const navigation = [
         {
             name: "Mis vacaciones",
-            href: `${lang}/panel/my-holidays`,
+            href: "/panel",
             icon: HomeModernIcon,
-            current: true,
+            current: pathname === `/${lang}/panel`,
         },
         {
             name: "Calendario",
-            href: `/panel/calendar`,
+            href: "/panel/calendar",
             icon: CalendarDaysIcon,
-            current: false,
+            current: pathname === `/${lang}/panel/calendar`,
         },
     ];
 

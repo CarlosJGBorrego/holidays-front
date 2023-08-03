@@ -15,7 +15,6 @@ function getLocale(request) {
 export async function middleware(request) {
     // Check if there is any supported locale in the pathname
     const pathname = request.nextUrl.pathname;
-
     const pathnameIsMissingLocale = i18n.locales.every(
         (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
     );
@@ -30,8 +29,13 @@ export async function middleware(request) {
     if (pathnameIsMissingLocale) {
         // e.g. incoming request is /products
         // The new URL is now /en-US/products
-
-        return NextResponse.redirect(new URL(`/${locale}/`?.replace(/\/{2,}/g, "/"), request.url));
+        const regex = /^\/[a-zA-Z]{2}\//;
+        if (regex.test(pathname)) {
+            return NextResponse.redirect(
+                new URL(`/${locale}/`?.replace(/\/{2,}/g, "/"), request.url)
+            );
+        }
+        return NextResponse.redirect(new URL(`/${locale}/${pathname}`, request.url));
     }
 
     const cookieName = process.env.NEXT_PUBLIC_AUTH_COOKIE_NAME;
