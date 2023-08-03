@@ -1,6 +1,8 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { IHoliday } from "@/components/interfaces/holiday";
 
 interface Props {
     dict: any;
@@ -8,6 +10,12 @@ interface Props {
 
 export default function ModalAddHolidays({ dict }: Props) {
     const [open, setOpen] = useState(false);
+
+    const { register, handleSubmit } = useForm<IHoliday>();
+
+    const onSubmit: SubmitHandler<IHoliday> = (data) => {
+        console.log(data);
+    };
 
     return (
         <>
@@ -34,7 +42,9 @@ export default function ModalAddHolidays({ dict }: Props) {
                     </Transition.Child>
 
                     <div className="fixed inset-0 z-10 overflow-y-auto">
-                        <div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
+                        <form
+                            onSubmit={handleSubmit(onSubmit)}
+                            className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
                             <Transition.Child
                                 as={Fragment}
                                 enter="ease-out duration-300"
@@ -47,7 +57,7 @@ export default function ModalAddHolidays({ dict }: Props) {
                                     <div className="absolute right-0 top-0 pr-4 pt-4 block">
                                         <button
                                             type="button"
-                                            className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                            className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                                             onClick={() => setOpen(false)}>
                                             <span className="sr-only">Close</span>
                                             <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -58,54 +68,55 @@ export default function ModalAddHolidays({ dict }: Props) {
                                             <Dialog.Title
                                                 as="h3"
                                                 className="text-lg font-semibold leading-6 text-gray-900">
-                                                Añadir vacaciones
+                                                {dict?.panel?.modal?.title}
                                             </Dialog.Title>
                                             <div className="mt-2">
                                                 <p className="text-sm text-gray-500">
-                                                    Indica la fecha de tus vacaciones
+                                                    {dict?.panel?.modal?.description}
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="mt-5 sm:ml-4">
                                         <label
-                                            htmlFor="account-number"
+                                            htmlFor="start"
                                             className="block text-sm font-medium leading-6 text-gray-900">
-                                            Fecha de inicio
+                                            {dict?.panel?.modal?.startDate}
                                         </label>
 
                                         <input
+                                            {...register("start")}
                                             type="date"
-                                            id="date-input"
-                                            name="date"
+                                            id="start"
+                                            name="start"
                                             className="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         />
                                     </div>
                                     <div className="mt-5 sm:ml-4">
                                         <label
-                                            htmlFor="account-number"
+                                            htmlFor="end"
                                             className="block text-sm font-medium leading-6 text-gray-900">
-                                            Fecha de Fin
+                                            {dict?.panel?.modal?.endDate}
                                         </label>
 
                                         <input
+                                            {...register("end")}
                                             type="date"
-                                            id="date-input"
-                                            name="date"
+                                            id="end"
+                                            name="end"
                                             className="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         />
                                     </div>
                                     <div className="mt-10 flex flex-row-reverse">
                                         <button
-                                            type="button"
-                                            className="rounded-md bg-primary hover:bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
-                                            onClick={() => setOpen(false)}>
-                                            Añadir
+                                            type="submit"
+                                            className="rounded-md bg-primary hover:bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary">
+                                            {dict?.panel?.modal?.button}
                                         </button>
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>
-                        </div>
+                        </form>
                     </div>
                 </Dialog>
             </Transition.Root>

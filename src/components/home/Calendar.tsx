@@ -10,6 +10,7 @@ import ModalAddHolidays from "./components/ModalAddHolidays";
 
 interface Props {
     dict: any;
+    data: IHoliday[];
 }
 
 const currentDate = dayjs();
@@ -20,7 +21,7 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
 }
 
-export default function Calendar({ dict }: Props) {
+export default function Calendar({ dict, data }: Props) {
     const [months, setMonths] = useState(getDaysOfYear(parseFloat(currentYear)));
     const [selectedYear, setSelectedYear] = useState(currentYear);
 
@@ -33,20 +34,6 @@ export default function Calendar({ dict }: Props) {
             setMonths(getDaysOfYear(parseFloat(nextYear)));
         }
     };
-    const events: IHoliday[] = [
-        {
-            start: dayjs("2023-06-02", "YYYY-MM-DD").toDate(),
-            end: dayjs("2023-06-22", "YYYY-MM-DD").toDate(),
-        },
-        {
-            start: dayjs("2023-10-10", "YYYY-MM-DD").toDate(),
-            end: dayjs("2023-10-17", "YYYY-MM-DD").toDate(),
-        },
-        {
-            start: dayjs("2023-08-02", "YYYY-MM-DD").toDate(),
-            end: dayjs("2023-08-05", "YYYY-MM-DD").toDate(),
-        },
-    ];
 
     function getDatesInRange(startDateStr: Date, endDateStr: Date) {
         let startDate = dayjs(startDateStr);
@@ -61,7 +48,7 @@ export default function Calendar({ dict }: Props) {
         return datesInRange;
     }
 
-    const daysOfHolidays = events.flatMap((event) => {
+    const daysOfHolidays = data.flatMap((event: IHoliday) => {
         return getDatesInRange(event?.start, event?.end);
     });
 
