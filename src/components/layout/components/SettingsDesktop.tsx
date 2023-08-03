@@ -12,7 +12,7 @@ interface Props {
     dict: any;
 }
 
-export default function Settings({ dict }: Props) {
+export default function SettingsDesktop({ dict }: Props) {
     return (
         <div className="">
             <Menu as="div" className="relative inline-block text-left w-full">

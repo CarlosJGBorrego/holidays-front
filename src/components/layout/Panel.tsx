@@ -9,9 +9,10 @@ import {
     XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import Settings from "./components/Settings";
+import SettingsDesktop from "./components/SettingsDesktop";
 import { usePathname } from "next/navigation";
 import SelectLanguage from "../utils/SelectLanguage";
+import SettingsMobile from "./components/SettingsMobile";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
@@ -169,7 +170,7 @@ export default function Panel({ lang, dict, children }: Props) {
                                     </ul>
                                 </li>
                                 <li className="-mx-6 mt-auto">
-                                    <Settings dict={dict} />
+                                    <SettingsDesktop dict={dict} />
                                 </li>
                             </ul>
                         </nav>
@@ -185,16 +186,9 @@ export default function Panel({ lang, dict, children }: Props) {
                         <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                     </button>
                     <div className="flex-1 text-sm font-semibold leading-6 text-white">
-                        Dashboard
+                        {navigation.find((item) => item?.href === "/panel")?.name}
                     </div>
-                    <Link href="#">
-                        <span className="sr-only">Your profile</span>
-                        <img
-                            className="h-8 w-8 rounded-full bg-gray-800"
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt="asdas"
-                        />
-                    </Link>
+                    <SettingsMobile dict={dict} />
                 </div>
 
                 <main className="py-10 lg:pl-72">
