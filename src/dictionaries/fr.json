@@ -40,6 +40,13 @@
             "october": "Octobre",
             "november": "Novembre",
             "december": "Décembre"
+        },
+        "modal": {
+            "title": "Ajouter des vacances",
+            "description": "Indiquez les dates de vos vacances",
+            "startDate": "Date de début",
+            "endDate": "Date de fin",
+            "button": "Ajouter"
         }
     },
     "nav": {

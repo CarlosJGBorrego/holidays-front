@@ -1,5 +1,5 @@
 import SignIn from "@/components/forms/SignIn";
-import SelectLanguage from "@/components/utils/SelectLanguage";
+import SelectLanguage from "@/components/layout/components/SelectLanguage";
 import { getDictionary } from "@/dictionaries";
 
 interface Props {

@@ -4,14 +4,14 @@ import { Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
-import esIcon from "../../../public/languages/es.png";
-import enIcon from "../../../public/languages/en.png";
-import frIcon from "../../../public/languages/fr.png";
-import caIcon from "../../../public/languages/ca.png";
+import esIcon from "../../../../public/languages/es.png";
+import enIcon from "../../../../public/languages/en.png";
+import frIcon from "../../../../public/languages/fr.png";
+import caIcon from "../../../../public/languages/ca.png";
 import { useAuthContext } from "@/contexts/authContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ILanguage } from "../interfaces/language";
+import { ILanguage } from "../../interfaces/language";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");

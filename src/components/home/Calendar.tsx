@@ -6,6 +6,7 @@ import { DayCalendar } from "../interfaces/dayCalendar";
 import dayjs from "dayjs";
 import { IHoliday } from "../interfaces/holiday";
 import getTranslationMonth from "../utils/getTranslationMonths";
+import ModalAddHolidays from "./components/ModalAddHolidays";
 
 interface Props {
     dict: any;
@@ -95,12 +96,8 @@ export default function Calendar({ dict }: Props) {
                     </button>
                 </h1>
                 <div className="flex items-center">
-                    <div className="hidden md:ml-4 md:flex md:items-center">
-                        <button
-                            type="button"
-                            className="ml-6 rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-                            {dict?.panel?.addHolidays}
-                        </button>
+                    <div className="ml-4 flex items-center">
+                        <ModalAddHolidays dict={dict} />
                     </div>
                 </div>
             </header>

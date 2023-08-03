@@ -40,6 +40,13 @@
             "october": "October",
             "november": "November",
             "december": "December"
+        },
+        "modal": {
+            "title": "Add vacations",
+            "description": "Specify the dates of your vacations",
+            "startDate": "Start date",
+            "endDate": "End date",
+            "button": "Add"
         }
     },
     "nav": {

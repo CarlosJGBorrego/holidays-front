@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import SettingsDesktop from "./components/SettingsDesktop";
 import { usePathname } from "next/navigation";
-import SelectLanguage from "../utils/SelectLanguage";
+import SelectLanguage from "./components/SelectLanguage";
 import SettingsMobile from "./components/SettingsMobile";
 
 function classNames(...classes: string[]) {
