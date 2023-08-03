@@ -9,8 +9,9 @@ import {
     XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import Profile from "./components/Profile";
+import Settings from "./components/Settings";
 import { usePathname } from "next/navigation";
+import SelectLanguage from "../utils/SelectLanguage";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
@@ -18,20 +19,21 @@ function classNames(...classes: string[]) {
 
 interface Props {
     children: JSX.Element;
+    dict: any;
     lang: string;
 }
 
-export default function Panel({ lang, children }: Props) {
+export default function Panel({ lang, dict, children }: Props) {
     const pathname = usePathname();
     const navigation = [
         {
-            name: "Mis vacaciones",
+            name: dict?.nav?.home,
             href: "/panel",
             icon: HomeModernIcon,
             current: pathname === `/${lang}/panel`,
         },
         {
-            name: "Calendario",
+            name: dict?.nav?.calendar,
             href: "/panel/calendar",
             icon: CalendarDaysIcon,
             current: pathname === `/${lang}/panel/calendar`,
@@ -166,9 +168,8 @@ export default function Panel({ lang, children }: Props) {
                                         ))}
                                     </ul>
                                 </li>
-
                                 <li className="-mx-6 mt-auto">
-                                    <Profile />
+                                    <Settings dict={dict} />
                                 </li>
                             </ul>
                         </nav>
@@ -191,13 +192,18 @@ export default function Panel({ lang, children }: Props) {
                         <img
                             className="h-8 w-8 rounded-full bg-gray-800"
                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
+                            alt="asdas"
                         />
                     </Link>
                 </div>
 
                 <main className="py-10 lg:pl-72">
-                    <div className="px-4 sm:px-6 lg:px-8">{children}</div>
+                    <div className="flex justify-end px-4 sm:px-6 lg:px-8">
+                        <div className="w-48 pb-6">
+                            <SelectLanguage dict={dict} />
+                        </div>
+                    </div>
+                    <div>{children}</div>
                 </main>
             </div>
         </>

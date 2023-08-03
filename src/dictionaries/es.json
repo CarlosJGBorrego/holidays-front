@@ -6,39 +6,48 @@
         "signup": "Registrarme",
         "button": "Iniciar Sesión",
         "messageError": "Usuario o contraseña incorrecto",
-        "loading": "Cargando",
-        "language": "Idioma"
+        "loading": "Cargando"
     },
     "logout": "Cerrando sesión",
-    "signup": {
-        "title": "Registrate",
-        "username": "Nombre de usuario",
-        "email": "Correo electrónico",
-        "password": "Contraseña",
-        "passwordRepeat": "Repetir contraseña",
-        "login": "Ya estoy registrado",
-        "submit": "Enviar",
-        "messageError": "Email o nombre de usuario ya existe",
-        "emailError": "El correo electrónico tiene una extensión incorrecta",
-        "passwordError": "Las contraseñas no coinciden"
-    },
-    "form": {
-        "logout": "Cerrar sesión",
-        "yes": "Sí",
-        "no": "No",
-        "submit": "Enviar",
-        "submitting": "Enviando",
-        "required": "El campo es obligatorio"
-    },
-    "formSubmitted": {
-        "title": "El formulario se ha enviado correctamente",
-        "subtitle": "Si deseas realizar otro formulario, haz clic en el siguiente botón",
-        "button": "Volver a hacer"
-    },
     "languages": {
+        "language": "Idioma",
         "es": "Español",
         "en": "Inglés",
         "fr": "Francés",
         "ca": "Catalán"
+    },
+    "panel": {
+        "addHolidays": "Añadir vacaciones",
+        "days": {
+            "monday": "L",
+            "tuesday": "M",
+            "wednesday": "X",
+            "thursday": "J",
+            "friday": "V",
+            "saturday": "S",
+            "sunday": "D"
+        },
+        "months": {
+            "january": "Enero",
+            "february": "Febrero",
+            "march": "Marzo",
+            "april": "Abril",
+            "may": "Mayo",
+            "june": "Junio",
+            "july": "Julio",
+            "august": "Agosto",
+            "september": "Septiembre",
+            "october": "Octubre",
+            "november": "Noviembre",
+            "december": "Diciembre"
+        }
+    },
+    "nav": {
+        "home": "Mis vacaciones",
+        "calendar": "Calendario"
+    },
+    "settings": {
+        "profile": "Perfil",
+        "logout": "Cerrar sesión"
     }
 }

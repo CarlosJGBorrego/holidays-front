@@ -6,39 +6,48 @@
         "signup": "S'inscrire",
         "button": "Connexion",
         "messageError": "Nom d'utilisateur ou mot de passe invalide",
-        "loading": "Chargement",
-        "language": "Langage"
+        "loading": "Chargement"
     },
     "logout": "Déconnecter",
-    "signup": {
-        "title": "S'inscrire",
-        "username": "Nom d'utilisateur",
-        "email": "E-mail",
-        "password": "Mot de passe",
-        "passwordRepeat": "Répéter le mot de passe",
-        "login": "Je suis déjà inscrit",
-        "submit": "Envoyer",
-        "messageError": "L'adresse e-mail ou le nom d'utilisateur existe déjà",
-        "emailError": "L'e-mail a une mauvaise extension",
-        "passwordError": "Les mots de passe ne correspondent pas"
-    },
-    "form": {
-        "logout": "Fermer la session",
-        "yes": "Ouais",
-        "no": "Non",
-        "submit": "Envoyer",
-        "Submitting": "Envoi en cours",
-        "required": "Ce champ est requis"
-    },
-    "formSubmitted": {
-        "title": "Le formulaire a été soumis avec succès",
-        "subtitle": "Si vous souhaitez créer un autre formulaire, cliquez sur le bouton suivant",
-        "button": "Refaire"
-    },
     "languages": {
+        "language": "Langage",
         "es": "Espagnol",
         "en": "Anglais",
         "fr": "Français",
         "ca": "Catalan"
+    },
+    "panel": {
+        "addHolidays": "Ajouter des vacances",
+        "days": {
+            "monday": "L",
+            "tuesday": "M",
+            "wednesday": "M",
+            "thursday": "J",
+            "friday": "V",
+            "saturday": "S",
+            "sunday": "D"
+        },
+        "months": {
+            "january": "Janvier",
+            "february": "Février",
+            "march": "Mars",
+            "april": "Avril",
+            "may": "Mai",
+            "june": "Juin",
+            "july": "Juillet",
+            "august": "Août",
+            "september": "Septembre",
+            "october": "Octobre",
+            "november": "Novembre",
+            "december": "Décembre"
+        }
+    },
+    "nav": {
+        "home": "Mes vacances",
+        "calendar": "Calendrier"
+    },
+    "settings": {
+        "profile": "Profil",
+        "logout": "Déconnexion"
     }
 }

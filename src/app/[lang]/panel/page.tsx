@@ -1,5 +1,6 @@
 import Calendar from "@/components/home/Calendar";
 import Panel from "@/components/layout/Panel";
+import { getDictionary } from "@/dictionaries";
 
 interface Props {
     params: {
@@ -8,10 +9,11 @@ interface Props {
 }
 
 export default async function Home({ params: { lang } }: Props) {
+    const dict = await getDictionary(lang);
     return (
-        <Panel lang={lang}>
+        <Panel lang={lang} dict={dict}>
             <div>
-                <Calendar />
+                <Calendar dict={dict} />
             </div>
         </Panel>
     );

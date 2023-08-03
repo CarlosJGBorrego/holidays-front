@@ -8,7 +8,11 @@ import {
     UserCircleIcon,
 } from "@heroicons/react/24/outline";
 
-export default function Profile() {
+interface Props {
+    dict: any;
+}
+
+export default function Settings({ dict }: Props) {
     return (
         <div className="">
             <Menu as="div" className="relative inline-block text-left w-full">
@@ -17,7 +21,7 @@ export default function Profile() {
                         <img
                             className="h-8 w-8 rounded-full bg-gray-800"
                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
+                            alt="blbllb"
                         />
                         <span className="sr-only">Your profile</span>
                         <div className="flex justify-between items-center w-full">
@@ -46,7 +50,7 @@ export default function Profile() {
                                             className="mr-2 h-5 w-5"
                                             aria-hidden="true"
                                         />
-                                        Perfil
+                                        {dict?.settings?.profile}
                                     </button>
                                 )}
                             </Menu.Item>
@@ -62,7 +66,7 @@ export default function Profile() {
                                             className="mr-2 h-5 w-5"
                                             aria-hidden="true"
                                         />
-                                        Cerrar sesión
+                                        {dict?.settings?.logout}
                                     </button>
                                 )}
                             </Menu.Item>

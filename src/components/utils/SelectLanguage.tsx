@@ -56,7 +56,7 @@ export default function SelectLanguage({ dict }: any) {
                 {({ open }) => (
                     <>
                         <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900 mr-3">
-                            {dict?.login?.language}
+                            {dict?.languages?.language}
                         </Listbox.Label>
                         <div className="relative mt-0">
                             <Listbox.Button className="relative w-48 cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6">
@@ -106,7 +106,7 @@ export default function SelectLanguage({ dict }: any) {
                                                     <div className="flex items-center py-2 pl-3">
                                                         <Image
                                                             src={language?.avatar}
-                                                            alt={language?.name}
+                                                            alt={language?.name!}
                                                             width={10}
                                                             height={10}
                                                             className="h-5 w-5 flex-shrink-0 rounded-full"
