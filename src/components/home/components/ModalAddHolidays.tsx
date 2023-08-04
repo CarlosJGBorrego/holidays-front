@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IHoliday } from "@/components/interfaces/holiday";
@@ -7,6 +7,7 @@ import { IUser } from "@/components/interfaces/user";
 import { apiCreateHoliday } from "@/api";
 import dayjs from "dayjs";
 import { useAuthContext } from "@/contexts/authContext";
+import { useRouter, usePathname } from "next/navigation";
 
 interface Props {
     dict: any;
@@ -18,6 +19,8 @@ const currentDate = dayjs();
 const nextYear = currentDate.add(1, "year").format("YYYY");
 
 export default function ModalAddHolidays({ dict, user, token }: Props) {
+    const router = useRouter();
+    const pathname = usePathname();
     const [open, setOpen] = useState(false);
     const { register, handleSubmit } = useForm<IHoliday>();
     const [error, setError] = useState("");
@@ -67,6 +70,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
                 await apiCreateHoliday(res, token);
                 setOpen(false);
                 notificationOnChange(true);
+                router.refresh();
             } catch (err) {
                 console.error(err);
             }
