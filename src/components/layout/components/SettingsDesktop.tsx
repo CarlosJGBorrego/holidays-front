@@ -7,12 +7,14 @@ import {
     EllipsisVerticalIcon,
     UserCircleIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 interface Props {
     dict: any;
+    lang: string;
 }
 
-export default function SettingsDesktop({ dict }: Props) {
+export default function SettingsDesktop({ dict, lang }: Props) {
     return (
         <div className="">
             <Menu as="div" className="relative inline-block text-left w-full">
@@ -38,11 +40,12 @@ export default function SettingsDesktop({ dict }: Props) {
                     leave="transition ease-in duration-75"
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95">
-                    <Menu.Items className="absolute -top-[6rem] w-[97%] ml-1 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute -top-[6rem] w-[93%] ml-2.5 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <div className="px-1 py-1 ">
                             <Menu.Item>
                                 {({ active }) => (
-                                    <button
+                                    <Link
+                                        href="/panel/settings"
                                         className={`${
                                             active ? "bg-primary text-white" : "text-gray-900"
                                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}>
@@ -51,14 +54,15 @@ export default function SettingsDesktop({ dict }: Props) {
                                             aria-hidden="true"
                                         />
                                         {dict?.settings?.profile}
-                                    </button>
+                                    </Link>
                                 )}
                             </Menu.Item>
                         </div>
                         <div className="px-1 py-1">
                             <Menu.Item>
                                 {({ active }) => (
-                                    <button
+                                    <a
+                                        href={`${lang}/logout`}
                                         className={`${
                                             active ? "bg-primary text-white" : "text-gray-900"
                                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}>
@@ -67,7 +71,7 @@ export default function SettingsDesktop({ dict }: Props) {
                                             aria-hidden="true"
                                         />
                                         {dict?.settings?.logout}
-                                    </button>
+                                    </a>
                                 )}
                             </Menu.Item>
                         </div>

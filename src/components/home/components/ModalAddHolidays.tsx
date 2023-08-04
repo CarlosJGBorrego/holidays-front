@@ -7,7 +7,7 @@ import { IUser } from "@/components/interfaces/user";
 import { apiCreateHoliday } from "@/api";
 import dayjs from "dayjs";
 import { useAuthContext } from "@/contexts/authContext";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface Props {
     dict: any;
@@ -20,7 +20,6 @@ const nextYear = currentDate.add(1, "year").format("YYYY");
 
 export default function ModalAddHolidays({ dict, user, token }: Props) {
     const router = useRouter();
-    const pathname = usePathname();
     const [open, setOpen] = useState(false);
     const { register, handleSubmit } = useForm<IHoliday>();
     const [error, setError] = useState("");

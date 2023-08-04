@@ -3,12 +3,14 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { ArrowLeftOnRectangleIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 interface Props {
     dict: any;
+    lang: string;
 }
 
-export default function SettingsMobile({ dict }: Props) {
+export default function SettingsMobile({ dict, lang }: Props) {
     return (
         <div className="">
             <Menu as="div" className="relative inline-block text-left rounded-full">
@@ -33,7 +35,8 @@ export default function SettingsMobile({ dict }: Props) {
                         <div className="px-1 py-1 ">
                             <Menu.Item>
                                 {({ active }) => (
-                                    <button
+                                    <Link
+                                        href="/panel/settings"
                                         className={`${
                                             active ? "bg-primary text-white" : "text-gray-900"
                                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}>
@@ -42,14 +45,15 @@ export default function SettingsMobile({ dict }: Props) {
                                             aria-hidden="true"
                                         />
                                         {dict?.settings?.profile}
-                                    </button>
+                                    </Link>
                                 )}
                             </Menu.Item>
                         </div>
                         <div className="px-1 py-1">
                             <Menu.Item>
                                 {({ active }) => (
-                                    <button
+                                    <a
+                                        href={`${lang}/logout`}
                                         className={`${
                                             active ? "bg-primary text-white" : "text-gray-900"
                                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}>
@@ -58,7 +62,7 @@ export default function SettingsMobile({ dict }: Props) {
                                             aria-hidden="true"
                                         />
                                         {dict?.settings?.logout}
-                                    </button>
+                                    </a>
                                 )}
                             </Menu.Item>
                         </div>

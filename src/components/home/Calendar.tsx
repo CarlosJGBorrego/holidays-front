@@ -8,7 +8,6 @@ import { IHoliday } from "../interfaces/holiday";
 import getTranslationMonth from "../utils/getTranslationMonths";
 import ModalAddHolidays from "./components/ModalAddHolidays";
 import { IUser } from "../interfaces/user";
-import SuccessNotification from "../utils/SuccessNotification";
 
 interface Props {
     dict: any;
@@ -109,7 +108,7 @@ export default function Calendar({ dict, holidays, user, token }: Props) {
                                 <div>{dict?.panel?.days?.saturday}</div>
                                 <div>{dict?.panel?.days?.sunday}</div>
                             </div>
-                            <div className="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-200 text-sm shadow ring-1 ring-gray-200">
+                            <div className="isolate mt-2 grid grid-cols-7 gap-px rounded-lg bg-gray-300 text-sm shadow ring-1 ring-gray-200">
                                 {month.days.map((day: DayCalendar, dayIdx: number) => (
                                     <button
                                         key={dayIdx}

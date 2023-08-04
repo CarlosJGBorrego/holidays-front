@@ -192,7 +192,7 @@ export default function Panel({ lang, dict, children }: Props) {
                                     </ul>
                                 </li>
                                 <li className="-mx-6 mt-auto">
-                                    <SettingsDesktop dict={dict} />
+                                    <SettingsDesktop dict={dict} lang={lang} />
                                 </li>
                             </ul>
                         </nav>
@@ -210,7 +210,7 @@ export default function Panel({ lang, dict, children }: Props) {
                     <div className="flex-1 text-sm font-semibold leading-6 text-white">
                         {navigation.find((item) => item?.href === "/panel")?.name}
                     </div>
-                    <SettingsMobile dict={dict} />
+                    <SettingsMobile dict={dict} lang={lang} />
                 </div>
 
                 <main className="py-10 lg:pl-72">

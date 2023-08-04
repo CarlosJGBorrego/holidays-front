@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default async function Page({ params: { lang } }: Props) {
-    const dict = await getDictionary(lang);
+    const dict: any = await getDictionary(lang);
 
     return <Logout dict={dict} />;
 }
