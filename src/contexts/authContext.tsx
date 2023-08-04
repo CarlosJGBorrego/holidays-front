@@ -30,12 +30,14 @@ export const AuthContext = createContext({
         isLoading: true,
         error: null,
     },
+    notificationOnChange: (value: boolean) => {},
+    notification: false,
 });
 
 export default function AuthContextProvider({ lang, children }: Props) {
     const [authToken, setAuthToken] = useState<any>(null);
-
     const [language, setLanguage] = useState<string>(lang);
+    const [isSuccessNotification, setIsSuccessNotification] = useState<boolean>(false);
 
     useEffect(() => {
         const initializeAuth = () => {
@@ -72,6 +74,12 @@ export default function AuthContextProvider({ lang, children }: Props) {
         setLanguage(language?.locale);
     }, []);
 
+    let notification = isSuccessNotification;
+
+    const notificationOnChange = useCallback((value: boolean) => {
+        setIsSuccessNotification(value);
+    }, []);
+
     const value = useMemo(
         () => ({
             lang,
@@ -84,8 +92,20 @@ export default function AuthContextProvider({ lang, children }: Props) {
                 isLoading,
                 error,
             },
+            notification,
+            notificationOnChange,
         }),
-        [authToken, login, user, isLoading, error, lang, onChange]
+        [
+            authToken,
+            login,
+            user,
+            isLoading,
+            error,
+            lang,
+            onChange,
+            notification,
+            notificationOnChange,
+        ]
     );
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
     Bars3Icon,
@@ -13,6 +13,8 @@ import SettingsDesktop from "./components/SettingsDesktop";
 import { usePathname } from "next/navigation";
 import SelectLanguage from "./components/SelectLanguage";
 import SettingsMobile from "./components/SettingsMobile";
+import SuccessNotification from "../utils/SuccessNotification";
+import { useAuthContext } from "@/contexts/authContext";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
@@ -42,9 +44,29 @@ export default function Panel({ lang, dict, children }: Props) {
     ];
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [show, setShow] = useState(false);
+    const { notification, notificationOnChange } = useAuthContext();
+
+    useEffect(() => {
+        setShow(true);
+        setTimeout(() => {
+            setShow(false);
+            notificationOnChange(false);
+        }, 3000);
+    }, [notification, notificationOnChange]);
 
     return (
         <>
+            {notification && (
+                <div className="relative top-0 right-0">
+                    <SuccessNotification
+                        title="Creation"
+                        description="Se ha creado con éxito"
+                        show={show}
+                        setShow={setShow}
+                    />
+                </div>
+            )}
             <div>
                 <Transition.Root show={sidebarOpen} as={Fragment}>
                     <Dialog as="div" className="relative z-50 lg:hidden" onClose={setSidebarOpen}>

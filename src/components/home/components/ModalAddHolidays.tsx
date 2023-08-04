@@ -1,11 +1,12 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IHoliday } from "@/components/interfaces/holiday";
 import { IUser } from "@/components/interfaces/user";
 import { apiCreateHoliday } from "@/api";
 import dayjs from "dayjs";
+import { useAuthContext } from "@/contexts/authContext";
 
 interface Props {
     dict: any;
@@ -20,9 +21,19 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
     const [open, setOpen] = useState(false);
     const { register, handleSubmit } = useForm<IHoliday>();
     const [error, setError] = useState("");
+    const [isValidStart, setIsValidStart] = useState();
+    const [isValidEnd, setIsValidEnd] = useState();
 
-    const handleResetError = () => {
+    const { notificationOnChange } = useAuthContext();
+
+    const handleInputStart = (e: any) => {
         setError("");
+        setIsValidStart(e.target.value);
+    };
+
+    const handleInputEnd = (e: any) => {
+        setError("");
+        setIsValidEnd(e.target.value);
     };
 
     const onSubmit: SubmitHandler<IHoliday> = async (data) => {
@@ -55,6 +66,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
                 };
                 await apiCreateHoliday(res, token);
                 setOpen(false);
+                notificationOnChange(true);
             } catch (err) {
                 console.error(err);
             }
@@ -132,7 +144,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
                                             {...register("start")}
                                             type="date"
                                             id="start"
-                                            onChange={handleResetError}
+                                            onChange={(e) => handleInputStart(e)}
                                             name="start"
                                             className="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         />
@@ -148,7 +160,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
                                             {...register("end")}
                                             type="date"
                                             id="end"
-                                            onChange={handleResetError}
+                                            onChange={(e) => handleInputEnd(e)}
                                             name="end"
                                             className="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         />
@@ -161,7 +173,12 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
                                     <div className="mt-8 flex flex-row-reverse">
                                         <button
                                             type="submit"
-                                            className="rounded-md bg-primary hover:bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary">
+                                            disabled={!isValidStart || !isValidEnd}
+                                            className={`${
+                                                !isValidStart || !isValidEnd
+                                                    ? "opacity-30"
+                                                    : "opacity-100 hover:bg-secondary"
+                                            } rounded-md bg-primary  px-4 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary`}>
                                             {dict?.panel?.modal?.button}
                                         </button>
                                     </div>

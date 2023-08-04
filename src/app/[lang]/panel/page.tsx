@@ -22,9 +22,7 @@ export default async function Home({ params: { lang } }: Props) {
 
     return (
         <Panel lang={lang} dict={dict}>
-            <div>
-                <Calendar dict={dict} holidays={myHolidays} user={user} token={token!} />
-            </div>
+            <Calendar dict={dict} holidays={myHolidays} user={user} token={token!} />
         </Panel>
     );
 }
