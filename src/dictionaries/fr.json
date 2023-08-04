@@ -46,7 +46,13 @@
             "description": "Indiquez les dates de vos vacances",
             "startDate": "Date de début",
             "endDate": "Date de fin",
-            "button": "Ajouter"
+            "button": "Ajouter",
+            "errors": {
+                "startAfterEnd": "La date de début ne peut pas être postérieure à la date de fin.",
+                "startPast": "Vous ne pouvez pas entrer de dates passées.",
+                "endFuture": "Vous ne pouvez pas entrer de date avec une année ultérieure à l'année prochaine."
+            },
+            "success": "Les vacances ont été créées avec succès."
         }
     },
     "nav": {

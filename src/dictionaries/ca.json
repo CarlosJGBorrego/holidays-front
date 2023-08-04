@@ -46,7 +46,13 @@
             "description": "Indica les dates de les teves vacances",
             "startDate": "Data d'inici",
             "endDate": "Data de fi",
-            "button": "Afegir"
+            "button": "Afegir",
+            "errors": {
+                "startAfterEnd": "La data d'inici no pot ser posterior a la data de fi.",
+                "startPast": "No podeu introduir dates passades.",
+                "endFuture": "No podeu introduir una data amb un any posterior a l'any vinent."
+            },
+            "success": "S'han creat les vacances amb èxit."
         }
     },
     "nav": {

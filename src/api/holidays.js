@@ -27,13 +27,7 @@ export async function apiCreateHoliday(data, token) {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({
-            data: {
-                start: data?.start,
-                end: data?.end,
-                user: user?.id,
-            },
-        }),
+        body: JSON.stringify(data),
     });
 
     if (!res.ok) {

@@ -3,18 +3,62 @@ import { Fragment, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IHoliday } from "@/components/interfaces/holiday";
+import { IUser } from "@/components/interfaces/user";
+import { apiCreateHoliday } from "@/api";
+import dayjs from "dayjs";
 
 interface Props {
     dict: any;
+    user: IUser;
+    token: string;
 }
 
-export default function ModalAddHolidays({ dict }: Props) {
+const currentDate = dayjs();
+const nextYear = currentDate.add(1, "year").format("YYYY");
+
+export default function ModalAddHolidays({ dict, user, token }: Props) {
     const [open, setOpen] = useState(false);
-
     const { register, handleSubmit } = useForm<IHoliday>();
+    const [error, setError] = useState("");
 
-    const onSubmit: SubmitHandler<IHoliday> = (data) => {
-        console.log(data);
+    const handleResetError = () => {
+        setError("");
+    };
+
+    const onSubmit: SubmitHandler<IHoliday> = async (data) => {
+        const start = dayjs(data?.start);
+        const end = dayjs(data?.end);
+        let valid = true;
+
+        if (start.isAfter(end)) {
+            setError(dict?.panel?.modal?.errors?.startAfterEnd);
+            valid = false;
+        }
+        if (start.isBefore(currentDate, "days")) {
+            setError(dict?.panel?.modal?.errors?.startPast);
+            valid = false;
+        }
+        if (end.isAfter(nextYear, "year")) {
+            setError(dict?.panel?.modal?.errors?.endFuture);
+            valid = false;
+        }
+
+        if (valid) {
+            setError("");
+            try {
+                const res = {
+                    data: {
+                        start: data?.start,
+                        end: data?.end,
+                        user: user?.id,
+                    },
+                };
+                await apiCreateHoliday(res, token);
+                setOpen(false);
+            } catch (err) {
+                console.error(err);
+            }
+        }
     };
 
     return (
@@ -88,6 +132,7 @@ export default function ModalAddHolidays({ dict }: Props) {
                                             {...register("start")}
                                             type="date"
                                             id="start"
+                                            onChange={handleResetError}
                                             name="start"
                                             className="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         />
@@ -103,11 +148,17 @@ export default function ModalAddHolidays({ dict }: Props) {
                                             {...register("end")}
                                             type="date"
                                             id="end"
+                                            onChange={handleResetError}
                                             name="end"
                                             className="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         />
                                     </div>
-                                    <div className="mt-10 flex flex-row-reverse">
+                                    <div className="pl-4 pt-4">
+                                        <p className="text-red-500 font-semibold text-sm">
+                                            {error && error}
+                                        </p>
+                                    </div>
+                                    <div className="mt-8 flex flex-row-reverse">
                                         <button
                                             type="submit"
                                             className="rounded-md bg-primary hover:bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary">

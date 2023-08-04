@@ -46,7 +46,13 @@
             "description": "Indica la fecha de tus vacaciones",
             "startDate": "Fecha de inicio",
             "endDate": "Fecha de fin",
-            "button": "Añadir"
+            "button": "Añadir",
+            "errors": {
+                "startAfterEnd": "La fecha de inicio no puede ser mayor a la de fin",
+                "startPast": "No se puede introducir fechas pasadas",
+                "endFuture": "No se puede introducir una fecha con el año posterior al del año que viene"
+            },
+            "success": "Se ha creado las vacaciones con éxito"
         }
     },
     "nav": {

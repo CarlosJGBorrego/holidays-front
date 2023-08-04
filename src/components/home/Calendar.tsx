@@ -7,10 +7,13 @@ import dayjs from "dayjs";
 import { IHoliday } from "../interfaces/holiday";
 import getTranslationMonth from "../utils/getTranslationMonths";
 import ModalAddHolidays from "./components/ModalAddHolidays";
+import { IUser } from "../interfaces/user";
 
 interface Props {
     dict: any;
-    data: IHoliday[];
+    holidays: IHoliday[];
+    user: IUser;
+    token: string;
 }
 
 const currentDate = dayjs();
@@ -21,7 +24,7 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
 }
 
-export default function Calendar({ dict, data }: Props) {
+export default function Calendar({ dict, holidays, user, token }: Props) {
     const [months, setMonths] = useState(getDaysOfYear(parseFloat(currentYear)));
     const [selectedYear, setSelectedYear] = useState(currentYear);
 
@@ -48,7 +51,7 @@ export default function Calendar({ dict, data }: Props) {
         return datesInRange;
     }
 
-    const daysOfHolidays = data.flatMap((event: IHoliday) => {
+    const daysOfHolidays = holidays.flatMap((event: IHoliday) => {
         return getDatesInRange(event?.start, event?.end);
     });
 
@@ -84,7 +87,7 @@ export default function Calendar({ dict, data }: Props) {
                 </h1>
                 <div className="flex items-center">
                     <div className="ml-4 flex items-center">
-                        <ModalAddHolidays dict={dict} />
+                        <ModalAddHolidays dict={dict} user={user} token={token} />
                     </div>
                 </div>
             </header>
