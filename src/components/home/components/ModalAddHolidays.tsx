@@ -44,15 +44,15 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
         let valid = true;
 
         if (start.isAfter(end)) {
-            setError(dict?.panel?.modal?.errors?.startAfterEnd);
+            setError(dict?.panel?.modal?.add?.errors?.startAfterEnd);
             valid = false;
         }
         if (start.isBefore(currentDate, "days")) {
-            setError(dict?.panel?.modal?.errors?.startPast);
+            setError(dict?.panel?.modal?.add?.errors?.startPast);
             valid = false;
         }
         if (end.isAfter(nextYear, "year")) {
-            setError(dict?.panel?.modal?.errors?.endFuture);
+            setError(dict?.panel?.modal?.add?.errors?.endFuture);
             valid = false;
         }
 
@@ -127,11 +127,11 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
                                             <Dialog.Title
                                                 as="h3"
                                                 className="text-lg font-semibold leading-6 text-gray-900">
-                                                {dict?.panel?.modal?.title}
+                                                {dict?.panel?.modal?.add?.title}
                                             </Dialog.Title>
                                             <div className="mt-2">
                                                 <p className="text-sm text-gray-500">
-                                                    {dict?.panel?.modal?.description}
+                                                    {dict?.panel?.modal?.add?.description}
                                                 </p>
                                             </div>
                                         </div>
@@ -140,7 +140,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
                                         <label
                                             htmlFor="start"
                                             className="block text-sm font-medium leading-6 text-gray-900">
-                                            {dict?.panel?.modal?.startDate}
+                                            {dict?.panel?.modal?.add?.startDate}
                                         </label>
 
                                         <input
@@ -156,7 +156,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
                                         <label
                                             htmlFor="end"
                                             className="block text-sm font-medium leading-6 text-gray-900">
-                                            {dict?.panel?.modal?.endDate}
+                                            {dict?.panel?.modal?.add?.endDate}
                                         </label>
 
                                         <input
@@ -182,7 +182,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
                                                     ? "opacity-30"
                                                     : "opacity-100 hover:bg-secondary"
                                             } rounded-md bg-primary  px-4 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary`}>
-                                            {dict?.panel?.modal?.button}
+                                            {dict?.panel?.modal?.add?.button}
                                         </button>
                                     </div>
                                 </Dialog.Panel>

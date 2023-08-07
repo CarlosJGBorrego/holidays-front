@@ -58,7 +58,7 @@ export default function Calendar({ dict, holidays, user, token }: Props) {
 
     return (
         <div>
-            <ListHolidays holidays={holidays} token={token} />
+            <ListHolidays holidays={holidays} token={token} dict={dict} />
             <div>
                 <header className="flex items-center justify-between px-8 pt-6 ">
                     <h1 className="text-base font-semibold leading-6 text-gray-900">

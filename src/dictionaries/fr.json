@@ -42,17 +42,30 @@
             "december": "Décembre"
         },
         "modal": {
-            "title": "Ajouter des vacances",
-            "description": "Indiquez les dates de vos vacances",
-            "startDate": "Date de début",
-            "endDate": "Date de fin",
-            "button": "Ajouter",
-            "errors": {
-                "startAfterEnd": "La date de début ne peut pas être postérieure à la date de fin.",
-                "startPast": "Vous ne pouvez pas entrer de dates passées.",
-                "endFuture": "Vous ne pouvez pas entrer de date avec une année ultérieure à l'année prochaine."
+            "add": {
+                "title": "Ajouter des vacances",
+                "description": "Indiquez les dates de vos vacances",
+                "startDate": "Date de début",
+                "endDate": "Date de fin",
+                "button": "Ajouter",
+                "errors": {
+                    "startAfterEnd": "La date de début ne peut pas être postérieure à la date de fin.",
+                    "startPast": "Vous ne pouvez pas entrer de dates passées.",
+                    "endFuture": "Vous ne pouvez pas entrer de date avec une année ultérieure à l'année prochaine."
+                },
+                "success": "Les vacances ont été créées avec succès."
             },
-            "success": "Les vacances ont été créées avec succès."
+            "delete": {
+                "title": "Supprimer les vacances",
+                "description": "Êtes-vous sûr(e) de vouloir supprimer cette date ? Si vous le faites, cela ne pourra pas être annulé.",
+                "cancel": "Annuler",
+                "button": "Supprimer"
+            }
+        },
+        "list": {
+            "title": "Mes vacances",
+            "description": "Vacances ajoutées pour cette année et la suivante",
+            "to": "à"
         }
     },
     "nav": {

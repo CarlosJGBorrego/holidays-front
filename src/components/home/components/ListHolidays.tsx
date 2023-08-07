@@ -9,9 +9,10 @@ import ModalDeleteHolidays from "./ModalDeleteHoliday";
 interface Props {
     holidays: IHoliday[];
     token: string;
+    dict: any;
 }
 
-export default function ListHolidays({ holidays, token }: Props) {
+export default function ListHolidays({ holidays, token, dict }: Props) {
     const [open, setOpen] = useState(false);
     const [idHolidayRemove, setIdHolidayRemove] = useState<number>();
 
@@ -28,6 +29,7 @@ export default function ListHolidays({ holidays, token }: Props) {
                     setOpen={setOpen}
                     id={idHolidayRemove!}
                     token={token}
+                    dict={dict}
                 />
             )}
             <div className="pb-10 px-8 border-b border-gray-200">
@@ -38,10 +40,10 @@ export default function ListHolidays({ holidays, token }: Props) {
                             <Disclosure.Button className="w-full flex justify-between items-center text-left border-b border-gray-200 bg-primary rounded-t-lg px-4 py-5 sm:px-6">
                                 <div>
                                     <h3 className="text-base font-semibold leading-6 text-white">
-                                        Mis vacaciones
+                                        {dict?.panel?.list?.title}
                                     </h3>
                                     <p className="mt-1 text-sm text-gray-200">
-                                        Vacaciones añadidas para este año y el próximo
+                                        {dict?.panel?.list?.description}
                                     </p>
                                 </div>
                                 <div>
@@ -67,7 +69,9 @@ export default function ListHolidays({ holidays, token }: Props) {
                                                                 "DD-MM-YYYY"
                                                             )}
                                                         </span>
-                                                        <span className="mx-1 text-xs"> a </span>
+                                                        <span className="mx-1.5 text-xs">
+                                                            {dict?.panel?.list?.to}
+                                                        </span>
                                                         <span className="font-medium">
                                                             {dayjs(holiday?.end).format(
                                                                 "DD-MM-YYYY"

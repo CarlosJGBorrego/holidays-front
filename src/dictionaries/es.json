@@ -42,17 +42,30 @@
             "december": "Diciembre"
         },
         "modal": {
-            "title": "Añadir vacaciones",
-            "description": "Indica la fecha de tus vacaciones",
-            "startDate": "Fecha de inicio",
-            "endDate": "Fecha de fin",
-            "button": "Añadir",
-            "errors": {
-                "startAfterEnd": "La fecha de inicio no puede ser mayor a la de fin",
-                "startPast": "No se puede introducir fechas pasadas",
-                "endFuture": "No se puede introducir una fecha con el año posterior al del año que viene"
+            "add": {
+                "title": "Añadir vacaciones",
+                "description": "Indica la fecha de tus vacaciones",
+                "startDate": "Fecha de inicio",
+                "endDate": "Fecha de fin",
+                "button": "Añadir",
+                "errors": {
+                    "startAfterEnd": "La fecha de inicio no puede ser mayor a la de fin",
+                    "startPast": "No se puede introducir fechas pasadas",
+                    "endFuture": "No se puede introducir una fecha con el año posterior al del año que viene"
+                },
+                "success": "Se ha creado las vacaciones con éxito"
             },
-            "success": "Se ha creado las vacaciones con éxito"
+            "delete": {
+                "title": "Delete holidays",
+                "description": "Are you sure you want to delete this date? If you do, it cannot be undone.",
+                "cancel": "Cancel",
+                "button": "Delete"
+            }
+        },
+        "list": {
+            "title": "Mis vacaciones",
+            "description": "Vacaciones añadidas para este año y el próximo",
+            "to": "a"
         }
     },
     "nav": {

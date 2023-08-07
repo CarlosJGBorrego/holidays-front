@@ -42,17 +42,25 @@
             "december": "December"
         },
         "modal": {
-            "title": "Add holidays",
-            "description": "Specify the dates of your holidays",
-            "startDate": "Start date",
-            "endDate": "End date",
-            "button": "Add",
-            "errors": {
-                "startAfterEnd": "Start date cannot be greater than the end date.",
-                "startPast": "You cannot enter past dates.",
-                "endFuture": "You cannot enter a date with a year beyond the next year."
+            "add": {
+                "title": "Add holidays",
+                "description": "Specify the dates of your holidays",
+                "startDate": "Start date",
+                "endDate": "End date",
+                "button": "Add",
+                "errors": {
+                    "startAfterEnd": "Start date cannot be greater than the end date.",
+                    "startPast": "You cannot enter past dates.",
+                    "endFuture": "You cannot enter a date with a year beyond the next year."
+                },
+                "success": "Vacation has been created successfully."
             },
-            "success": "Vacation has been created successfully."
+            "delete": {}
+        },
+        "list": {
+            "title": "My Holidays",
+            "description": "Holidays added for this year and the next",
+            "to": "to"
         }
     },
     "nav": {
