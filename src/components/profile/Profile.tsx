@@ -28,7 +28,7 @@ export default function Profile({ dict }: Props) {
                             <div>
                                 <button
                                     type="button"
-                                    className="rounded-md bg-primary hover:bg-secondary px-3 py-2 text-sm font-semibold text-white shadow-sm">
+                                    className="rounded-md bg-primary hover:bg-secondary px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
                                     {dict?.profile?.personal?.buttonAvatar}
                                 </button>
                                 <p className="mt-2 text-xs leading-5 text-gray-500">
@@ -186,7 +186,7 @@ export default function Profile({ dict }: Props) {
                 <form className="flex items-start md:col-span-2">
                     <button
                         type="submit"
-                        className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500">
+                        className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
                         {dict?.profile?.delete?.button}
                     </button>
                 </form>

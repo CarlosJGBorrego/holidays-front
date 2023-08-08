@@ -56,10 +56,10 @@
                 "success": "Se ha creado las vacaciones con éxito"
             },
             "delete": {
-                "title": "Delete holidays",
-                "description": "Are you sure you want to delete this date? If you do, it cannot be undone.",
-                "cancel": "Cancel",
-                "button": "Delete"
+                "title": "Eliminar vacaciones",
+                "description": "¿Estás seguro de eliminar esta fecha? Si lo haces, está acción será irreversible.",
+                "cancel": "Cancelar",
+                "button": "Eliminar"
             }
         },
         "list": {
