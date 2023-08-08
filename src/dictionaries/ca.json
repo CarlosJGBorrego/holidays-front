@@ -66,6 +66,28 @@
             "title": "Les meves vacances",
             "description": "Vacances afegides per aquest any i el proper",
             "to": "a"
+        },
+        "notifications": {
+            "add": {
+                "success": {
+                    "title": "Vacances Creades",
+                    "description": "Les vacances s'han creat amb èxit."
+                },
+                "error": {
+                    "title": "Error Detectat",
+                    "description": "Ai! Hi va haver un problema en intentar crear les vacances."
+                }
+            },
+            "remove": {
+                "success": {
+                    "title": "Vacances Eliminades",
+                    "description": "Les vacances s'han eliminat amb èxit."
+                },
+                "error": {
+                    "title": "Error Detectat",
+                    "description": "Ai! Hi va haver un problema en intentar eliminar les vacances."
+                }
+            }
         }
     },
     "profile": {
@@ -77,7 +99,8 @@
             "firstName": "Nom",
             "lastName": "Cognoms",
             "email": "Correu electrònic",
-            "save": "Desar"
+            "save": "Desar",
+            "error": "Els camps són obligatoris"
         },
         "password": {
             "title": "Canviar contrasenya",

@@ -66,6 +66,28 @@
             "title": "Mis vacaciones",
             "description": "Vacaciones añadidas para este año y el próximo",
             "to": "a"
+        },
+        "notifications": {
+            "add": {
+                "success": {
+                    "title": "Vacaciones creadas",
+                    "description": "Se ha creado las vacaciones con éxito"
+                },
+                "error": {
+                    "title": "Error detectado",
+                    "description": "¡Ups!, hubo un problema al intentar crear las vacaciones."
+                }
+            },
+            "remove": {
+                "success": {
+                    "title": "Vacaciones eliminadas",
+                    "description": "Se ha eliminado las vacaciones con éxito"
+                },
+                "error": {
+                    "title": "Error detectado",
+                    "description": "¡Ups!, hubo un problema al intentar eliminar las vacaciones."
+                }
+            }
         }
     },
     "profile": {
@@ -77,7 +99,8 @@
             "firstName": "Nombre",
             "lastName": "Apellidos",
             "email": "Correo electrónico",
-            "save": "Guardar"
+            "save": "Guardar",
+            "error": "Los campos son obligatorios"
         },
         "password": {
             "title": "Cambiar contraseña",

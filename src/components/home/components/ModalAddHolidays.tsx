@@ -8,6 +8,8 @@ import { apiCreateHoliday } from "@/api";
 import dayjs from "dayjs";
 import { useAuthContext } from "@/contexts/authContext";
 import { useRouter } from "next/navigation";
+import { Actions } from "@/components/utils/getActions";
+import { TypeNotification } from "@/components/utils/getTypeNotification";
 
 interface Props {
     dict: any;
@@ -26,7 +28,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
     const [isValidStart, setIsValidStart] = useState();
     const [isValidEnd, setIsValidEnd] = useState();
 
-    const { notificationOnChange } = useAuthContext();
+    const { notificationOnChange, actionOnChange, typeNotificationOnChange } = useAuthContext();
 
     const handleInputStart = (e: any) => {
         setError("");
@@ -42,6 +44,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
         const start = dayjs(data?.start);
         const end = dayjs(data?.end);
         let valid = true;
+        actionOnChange(Actions.CREATE);
 
         if (start.isAfter(end)) {
             setError(dict?.panel?.modal?.add?.errors?.startAfterEnd);
@@ -68,11 +71,14 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
                 };
                 await apiCreateHoliday(res, token);
                 setOpen(false);
-                notificationOnChange(true);
+                typeNotificationOnChange(TypeNotification.SUCCESS);
                 router.refresh();
             } catch (err) {
+                setOpen(false);
+                typeNotificationOnChange(TypeNotification.ERROR);
                 console.error(err);
             }
+            notificationOnChange(true);
         }
     };
 

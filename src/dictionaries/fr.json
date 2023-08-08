@@ -66,6 +66,28 @@
             "title": "Mes vacances",
             "description": "Vacances ajoutées pour cette année et la suivante",
             "to": "à"
+        },
+        "notifications": {
+            "add": {
+                "success": {
+                    "title": "Vacances Créées",
+                    "description": "Les vacances ont été créées avec succès."
+                },
+                "error": {
+                    "title": "Erreur Détectée",
+                    "description": "Oups ! Un problème est survenu lors de la tentative de création des vacances."
+                }
+            },
+            "remove": {
+                "success": {
+                    "title": "Vacances Supprimées",
+                    "description": "Les vacances ont été supprimées avec succès."
+                },
+                "error": {
+                    "title": "Erreur Détectée",
+                    "description": "Oups ! Un problème est survenu lors de la tentative de suppression des vacances."
+                }
+            }
         }
     },
     "profile": {
@@ -77,7 +99,8 @@
             "firstName": "Prénom",
             "lastName": "Nom de famille",
             "email": "Adresse e-mail",
-            "save": "Enregistrer"
+            "save": "Enregistrer",
+            "error": "Les champs sont obligatoires"
         },
         "password": {
             "title": "Changer le Mot de Passe",

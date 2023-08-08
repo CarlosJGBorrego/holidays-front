@@ -15,6 +15,9 @@ import SelectLanguage from "./components/SelectLanguage";
 import SettingsMobile from "./components/SettingsMobile";
 import SuccessNotification from "../utils/SuccessNotification";
 import { useAuthContext } from "@/contexts/authContext";
+import ErrorNotification from "../utils/ErrorNotification";
+import { Actions } from "../utils/getActions";
+import { TypeNotification } from "../utils/getTypeNotification";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
@@ -45,7 +48,7 @@ export default function Panel({ lang, dict, children }: Props) {
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [show, setShow] = useState(false);
-    const { notification, notificationOnChange } = useAuthContext();
+    const { notification, notificationOnChange, action, typeNotification } = useAuthContext();
 
     useEffect(() => {
         setShow(true);
@@ -59,12 +62,38 @@ export default function Panel({ lang, dict, children }: Props) {
         <>
             {notification && (
                 <div className="relative top-0 right-0">
-                    <SuccessNotification
-                        title="Creation"
-                        description="Se ha creado con éxito"
-                        show={show}
-                        setShow={setShow}
-                    />
+                    {action === Actions.CREATE && typeNotification === TypeNotification.SUCCESS && (
+                        <SuccessNotification
+                            title={dict?.panel?.notifications?.add?.success?.title}
+                            description={dict?.panel?.notifications?.add?.success?.description}
+                            show={show}
+                            setShow={setShow}
+                        />
+                    )}
+                    {action === Actions.CREATE && typeNotification === TypeNotification.ERROR && (
+                        <ErrorNotification
+                            title={dict?.panel?.notifications?.add?.error?.title}
+                            description={dict?.panel?.notifications?.add?.error?.description}
+                            show={show}
+                            setShow={setShow}
+                        />
+                    )}
+                    {action === Actions.DELETE && typeNotification === TypeNotification.SUCCESS && (
+                        <SuccessNotification
+                            title={dict?.panel?.notifications?.remove?.success?.title}
+                            description={dict?.panel?.notifications?.remove?.success?.description}
+                            show={show}
+                            setShow={setShow}
+                        />
+                    )}
+                    {action === Actions.DELETE && typeNotification === TypeNotification.ERROR && (
+                        <ErrorNotification
+                            title={dict?.panel?.notifications?.remove?.error?.title}
+                            description={dict?.panel?.notifications?.remove?.error?.description}
+                            show={show}
+                            setShow={setShow}
+                        />
+                    )}
                 </div>
             )}
             <div>

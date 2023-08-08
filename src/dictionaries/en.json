@@ -61,6 +61,28 @@
             "title": "My Holidays",
             "description": "Holidays added for this year and the next",
             "to": "to"
+        },
+        "notifications": {
+            "add": {
+                "success": {
+                    "title": "Vacations Created",
+                    "description": "Vacations have been created successfully."
+                },
+                "error": {
+                    "title": "Error Detected",
+                    "description": "Oops! There was a problem while trying to create the vacations."
+                }
+            },
+            "remove": {
+                "success": {
+                    "title": "Vacations Removed",
+                    "description": "Vacations have been removed successfully."
+                },
+                "error": {
+                    "title": "Error Detected",
+                    "description": "Oops! There was a problem while trying to remove the vacations."
+                }
+            }
         }
     },
     "profile": {
@@ -72,7 +94,8 @@
             "firstName": "First Name",
             "lastName": "Last Name",
             "email": "Email",
-            "save": "Save"
+            "save": "Save",
+            "error": "Fields are mandatory"
         },
         "password": {
             "title": "Change Password",

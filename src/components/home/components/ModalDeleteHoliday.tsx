@@ -3,6 +3,9 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { apiDeleteHoliday } from "@/api";
 import { useRouter } from "next/navigation";
+import { useAuthContext } from "@/contexts/authContext";
+import { Actions } from "@/components/utils/getActions";
+import { TypeNotification } from "@/components/utils/getTypeNotification";
 
 interface Props {
     open: boolean;
@@ -14,15 +17,20 @@ interface Props {
 
 export default function ModalDeleteHolidays({ open, setOpen, id, token, dict }: Props) {
     const router = useRouter();
+    const { notificationOnChange, actionOnChange, typeNotificationOnChange } = useAuthContext();
 
     const handleDeleteHoliday = async () => {
+        actionOnChange(Actions.DELETE);
         try {
             await apiDeleteHoliday(id, token);
             setOpen(false);
+            typeNotificationOnChange(TypeNotification.SUCCESS);
             router.refresh();
         } catch (err) {
+            typeNotificationOnChange(TypeNotification.ERROR);
             console.error(err);
         }
+        notificationOnChange(true);
     };
 
     return (

@@ -32,12 +32,18 @@ export const AuthContext = createContext({
     },
     notificationOnChange: (value: boolean) => {},
     notification: false,
+    action: "",
+    actionOnChange: (status: string) => {},
+    typeNotification: "",
+    typeNotificationOnChange: (status: string) => {},
 });
 
 export default function AuthContextProvider({ lang, children }: Props) {
     const [authToken, setAuthToken] = useState<any>(null);
     const [language, setLanguage] = useState<string>(lang);
     const [isSuccessNotification, setIsSuccessNotification] = useState<boolean>(false);
+    const [actionStatus, setActionStatus] = useState<string>("");
+    const [typeNotificationStatus, setTypeNotificationStatus] = useState<string>("");
 
     useEffect(() => {
         const initializeAuth = () => {
@@ -80,6 +86,18 @@ export default function AuthContextProvider({ lang, children }: Props) {
         setIsSuccessNotification(value);
     }, []);
 
+    let action = actionStatus;
+
+    const actionOnChange = useCallback((status: string) => {
+        setActionStatus(status);
+    }, []);
+
+    let typeNotification = typeNotificationStatus;
+
+    const typeNotificationOnChange = useCallback((status: string) => {
+        setTypeNotificationStatus(status);
+    }, []);
+
     const value = useMemo(
         () => ({
             lang,
@@ -94,6 +112,10 @@ export default function AuthContextProvider({ lang, children }: Props) {
             },
             notification,
             notificationOnChange,
+            action,
+            actionOnChange,
+            typeNotification,
+            typeNotificationOnChange,
         }),
         [
             authToken,
@@ -105,6 +127,10 @@ export default function AuthContextProvider({ lang, children }: Props) {
             onChange,
             notification,
             notificationOnChange,
+            action,
+            actionOnChange,
+            typeNotification,
+            typeNotificationOnChange,
         ]
     );
 
