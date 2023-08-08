@@ -63,6 +63,31 @@
             "to": "to"
         }
     },
+    "profile": {
+        "personal": {
+            "title": "Personal Information",
+            "description": "Use your work email to stay updated on notifications.",
+            "buttonAvatar": "Change Image",
+            "max": "JPG, GIF or PNG. 1MB max.",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "save": "Save"
+        },
+        "password": {
+            "title": "Change Password",
+            "description": "Update the password associated with your account.",
+            "current": "Current Password",
+            "new": "New Password",
+            "confirm": "Confirm Password",
+            "save": "Save"
+        },
+        "delete": {
+            "title": "Delete Account",
+            "description": "Are you sure you want to delete your account? This action could be irreversible.",
+            "button": "Yes, delete my account"
+        }
+    },
     "nav": {
         "home": "My Holidays",
         "calendar": "Calendar"

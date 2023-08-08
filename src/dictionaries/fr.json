@@ -68,6 +68,31 @@
             "to": "à"
         }
     },
+    "profile": {
+        "personal": {
+            "title": "Informations Personnelles",
+            "description": "Utilisez votre adresse e-mail professionnelle pour rester informé des notifications.",
+            "buttonAvatar": "Changer d'image",
+            "max": "JPG, GIF ou PNG. 1 Mo max.",
+            "firstName": "Prénom",
+            "lastName": "Nom de famille",
+            "email": "Adresse e-mail",
+            "save": "Enregistrer"
+        },
+        "password": {
+            "title": "Changer le Mot de Passe",
+            "description": "Mettez à jour le mot de passe associé à votre compte.",
+            "current": "Mot de passe actuel",
+            "new": "Nouveau mot de passe",
+            "confirm": "Confirmer le mot de passe",
+            "save": "Enregistrer"
+        },
+        "delete": {
+            "title": "Supprimer le Compte",
+            "description": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action pourrait être irréversible.",
+            "button": "Oui, supprimer mon compte"
+        }
+    },
     "nav": {
         "home": "Mes vacances",
         "calendar": "Calendrier"

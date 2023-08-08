@@ -68,6 +68,31 @@
             "to": "a"
         }
     },
+    "profile": {
+        "personal": {
+            "title": "Informació Personal",
+            "description": "Utilitza el correu electrònic de treball per estar atent a les notificacions.",
+            "buttonAvatar": "Canviar imatge",
+            "max": "JPG, GIF o PNG. Màxim 1 MB.",
+            "firstName": "Nom",
+            "lastName": "Cognoms",
+            "email": "Correu electrònic",
+            "save": "Desar"
+        },
+        "password": {
+            "title": "Canviar contrasenya",
+            "description": "Actualitza la contrasenya associada al teu compte.",
+            "current": "Contrasenya actual",
+            "new": "Nova contrasenya",
+            "confirm": "Confirmar contrasenya",
+            "save": "Desar"
+        },
+        "delete": {
+            "title": "Eliminar compte",
+            "description": "Estàs segur d'eliminar el teu compte? Aquesta acció podria ser irreversible.",
+            "button": "Sí, eliminar el meu compte"
+        }
+    },
     "nav": {
         "home": "Les meves vacances",
         "calendar": "Calendari"

@@ -68,6 +68,31 @@
             "to": "a"
         }
     },
+    "profile": {
+        "personal": {
+            "title": "Información Personal",
+            "description": "Utiliza el correo de trabajo para estar atento a notificaciones.",
+            "buttonAvatar": "Cambiar imagen",
+            "max": "JPG, GIF ó PNG. 1MB máx.",
+            "firstName": "Nombre",
+            "lastName": "Apellidos",
+            "email": "Correo electrónico",
+            "save": "Guardar"
+        },
+        "password": {
+            "title": "Cambiar contraseña",
+            "description": "Actualiza la contraseña asociada a tu cuenta",
+            "current": "Contraseña actual",
+            "new": "Nueva contraseña",
+            "confirm": "Confirmar contraseña",
+            "save": "Guardar"
+        },
+        "delete": {
+            "title": "Eliminar cuenta",
+            "description": "¿Estás seguro de eliminar tu cuenta?. Esta acción podría ser irreversible",
+            "button": "Sí, eliminar mi cuenta"
+        }
+    },
     "nav": {
         "home": "Mis vacaciones",
         "calendar": "Calendario"
