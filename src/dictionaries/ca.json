@@ -96,8 +96,7 @@
             "description": "Utilitza el correu electrònic de treball per estar atent a les notificacions.",
             "buttonAvatar": "Canviar imatge",
             "max": "JPG, GIF o PNG. Màxim 1 MB.",
-            "firstName": "Nom",
-            "lastName": "Cognoms",
+            "username": "Nom complet",
             "email": "Correu electrònic",
             "save": "Desar",
             "error": "Els camps són obligatoris"

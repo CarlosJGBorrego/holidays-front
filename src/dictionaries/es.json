@@ -96,8 +96,7 @@
             "description": "Utiliza el correo de trabajo para estar atento a notificaciones.",
             "buttonAvatar": "Cambiar imagen",
             "max": "JPG, GIF ó PNG. 1MB máx.",
-            "firstName": "Nombre",
-            "lastName": "Apellidos",
+            "username": "Nombre Completo",
             "email": "Correo electrónico",
             "save": "Guardar",
             "error": "Los campos son obligatorios"

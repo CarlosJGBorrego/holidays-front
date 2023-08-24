@@ -1,20 +1,23 @@
 "use client";
 
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import {
     ArrowLeftOnRectangleIcon,
     EllipsisVerticalIcon,
     UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { apiProfile } from "@/api";
+import { IUser } from "@/components/interfaces/user";
 
 interface Props {
     dict: any;
     lang: string;
+    user: IUser;
 }
 
-export default function SettingsDesktop({ dict, lang }: Props) {
+export default function SettingsDesktop({ dict, lang, user }: Props) {
     return (
         <div className="">
             <Menu as="div" className="relative inline-block text-left w-full">
@@ -26,8 +29,8 @@ export default function SettingsDesktop({ dict, lang }: Props) {
                             alt="blbllb"
                         />
                         <span className="sr-only">Your profile</span>
-                        <div className="flex justify-between items-center w-full">
-                            <span aria-hidden="true">Tom Cook </span>
+                        <div className="flex justify-between items-center w-full text-ellipsis">
+                            <span aria-hidden="true">{user?.username}</span>
                             <EllipsisVerticalIcon className="h-6 w-6 shrink-0" aria-hidden="true" />
                         </div>
                     </Menu.Button>

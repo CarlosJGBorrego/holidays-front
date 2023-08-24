@@ -1,18 +1,25 @@
 import { apiProfile, apiUpdateProfile } from "@/api";
+import { IUser } from "@/components/interfaces/user";
+import { TypeNotification } from "@/components/utils/getTypeNotification";
+import { useAuthContext } from "@/contexts/authContext";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 interface Props {
     dict: any;
     token: string;
+    user: IUser;
 }
 
 interface Inputs {
-    firstName: string;
-    lastName: string;
+    username: string;
     email: string;
 }
 
-export default function PersonalInfo({ dict, token }: Props) {
+export default function PersonalInfo({ dict, token, user }: Props) {
+    const router = useRouter();
+    const { notificationOnChange, actionOnChange, typeNotificationOnChange } = useAuthContext();
+
     const {
         register,
         handleSubmit,
@@ -23,13 +30,17 @@ export default function PersonalInfo({ dict, token }: Props) {
             const me = await apiProfile(token);
             const res = {
                 ...me,
-                username: data?.firstName + " " + data?.lastName,
+                username: data?.username,
                 email: data?.email,
             };
             await apiUpdateProfile(me?.id, res, token);
+            typeNotificationOnChange(TypeNotification.SUCCESS);
+            router.refresh();
         } catch (err) {
             console.error(err);
+            typeNotificationOnChange(TypeNotification.ERROR);
         }
+        notificationOnChange(true);
     };
 
     return (
@@ -69,39 +80,20 @@ export default function PersonalInfo({ dict, token }: Props) {
 
                     <div className="sm:col-span-3">
                         <label
-                            htmlFor="firstName"
+                            htmlFor="username"
                             className="block text-sm font-medium leading-6 text-gray-700">
-                            {dict?.profile?.personal?.firstName}
+                            {dict?.profile?.personal?.username}
                         </label>
                         <div className="mt-2">
                             <input
-                                {...register("firstName", {
-                                    required: "El campo nombre es obligatorio",
+                                {...register("username", {
+                                    required: true,
                                 })}
                                 type="text"
-                                name="firstName"
-                                id="firstName"
+                                defaultValue={user?.username}
+                                name="username"
+                                id="username"
                                 autoComplete="given-name"
-                                className="block w-full rounded-md border-0 bg-white/50 py-1.5 text-gray-900 shadow-sm caret-primary ring-1 ring-inset ring-gray-200 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                            />
-                        </div>
-                    </div>
-
-                    <div className="sm:col-span-3">
-                        <label
-                            htmlFor="lastName"
-                            className="block text-sm font-medium leading-6 text-gray-700">
-                            {dict?.profile?.personal?.lastName}
-                        </label>
-                        <div className="mt-2">
-                            <input
-                                {...register("lastName", {
-                                    required: "El campo apellido es obligatorio",
-                                })}
-                                type="text"
-                                name="lastName"
-                                id="lastName"
-                                autoComplete="family-name"
                                 className="block w-full rounded-md border-0 bg-white/50 py-1.5 text-gray-900 shadow-sm caret-primary ring-1 ring-inset ring-gray-200 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                             />
                         </div>
@@ -116,8 +108,9 @@ export default function PersonalInfo({ dict, token }: Props) {
                         <div className="mt-2">
                             <input
                                 {...register("email", {
-                                    required: "El campo email es obligatorio",
+                                    required: true,
                                 })}
+                                defaultValue={user?.email}
                                 id="email"
                                 name="email"
                                 type="email"
@@ -128,7 +121,7 @@ export default function PersonalInfo({ dict, token }: Props) {
                     </div>
                 </div>
                 <div className="mt-4 ">
-                    {(errors?.email || errors?.firstName || errors?.lastName) && (
+                    {(errors?.email || errors?.username) && (
                         <p className="text-sm font-semibold text-red-500">
                             {dict?.profile?.personal?.error}
                         </p>

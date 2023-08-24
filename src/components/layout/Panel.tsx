@@ -18,6 +18,7 @@ import { useAuthContext } from "@/contexts/authContext";
 import ErrorNotification from "../utils/ErrorNotification";
 import { Actions } from "../utils/getActions";
 import { TypeNotification } from "../utils/getTypeNotification";
+import { IUser } from "../interfaces/user";
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
@@ -27,9 +28,10 @@ interface Props {
     children: JSX.Element;
     dict: any;
     lang: string;
+    user: IUser;
 }
 
-export default function Panel({ lang, dict, children }: Props) {
+export default function Panel({ lang, dict, user, children }: Props) {
     const pathname = usePathname();
     const navigation = [
         {
@@ -221,7 +223,7 @@ export default function Panel({ lang, dict, children }: Props) {
                                     </ul>
                                 </li>
                                 <li className="-mx-6 mt-auto">
-                                    <SettingsDesktop dict={dict} lang={lang} />
+                                    <SettingsDesktop dict={dict} lang={lang} user={user} />
                                 </li>
                             </ul>
                         </nav>
@@ -239,7 +241,7 @@ export default function Panel({ lang, dict, children }: Props) {
                     <div className="flex-1 text-sm font-semibold leading-6 text-white">
                         {navigation.find((item) => item?.href === "/panel")?.name}
                     </div>
-                    <SettingsMobile dict={dict} lang={lang} />
+                    <SettingsMobile dict={dict} lang={lang} user={user} />
                 </div>
 
                 <main className="py-10 lg:pl-72">

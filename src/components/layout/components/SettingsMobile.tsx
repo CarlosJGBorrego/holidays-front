@@ -4,13 +4,15 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { ArrowLeftOnRectangleIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { IUser } from "@/components/interfaces/user";
 
 interface Props {
     dict: any;
     lang: string;
+    user: IUser;
 }
 
-export default function SettingsMobile({ dict, lang }: Props) {
+export default function SettingsMobile({ dict, lang, user }: Props) {
     return (
         <div className="">
             <Menu as="div" className="relative inline-block text-left rounded-full">

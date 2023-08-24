@@ -96,8 +96,7 @@
             "description": "Utilisez votre adresse e-mail professionnelle pour rester informé des notifications.",
             "buttonAvatar": "Changer d'image",
             "max": "JPG, GIF ou PNG. 1 Mo max.",
-            "firstName": "Prénom",
-            "lastName": "Nom de famille",
+            "username": "Nom et Prénom",
             "email": "Adresse e-mail",
             "save": "Enregistrer",
             "error": "Les champs sont obligatoires"

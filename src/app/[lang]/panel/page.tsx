@@ -21,7 +21,7 @@ export default async function Home({ params: { lang } }: Props) {
     const myHolidays: IHoliday[] = await apiHolidaysByUserEmail(user?.email, token);
 
     return (
-        <Panel lang={lang} dict={dict}>
+        <Panel lang={lang} dict={dict} user={user}>
             <Calendar dict={dict} holidays={myHolidays} user={user} token={token!} />
         </Panel>
     );
