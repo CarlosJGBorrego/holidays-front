@@ -87,6 +87,16 @@
                     "title": "Erreur Détectée",
                     "description": "Oups ! Un problème est survenu lors de la tentative de suppression des vacances."
                 }
+            },
+            "updateInfo": {
+                "success": {
+                    "title": "Mise à jour des informations personnelles",
+                    "description": "Vos informations personnelles ont été mises à jour avec succès."
+                },
+                "error": {
+                    "title": "Erreur détectée",
+                    "description": "Oups ! Un problème est survenu lors de la tentative de mise à jour de vos informations personnelles."
+                }
             }
         }
     },

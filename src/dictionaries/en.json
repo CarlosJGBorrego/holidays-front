@@ -82,6 +82,16 @@
                     "title": "Error Detected",
                     "description": "Oops! There was a problem while trying to remove the vacations."
                 }
+            },
+            "updateInfo": {
+                "success": {
+                    "title": "Personal information updated",
+                    "description": "Your personal information has been successfully updated."
+                },
+                "error": {
+                    "title": "Error detected",
+                    "description": "Oops! There was a problem trying to update your personal information."
+                }
             }
         }
     },

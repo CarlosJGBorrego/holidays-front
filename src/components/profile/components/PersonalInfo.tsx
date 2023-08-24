@@ -1,5 +1,6 @@
 import { apiProfile, apiUpdateProfile } from "@/api";
 import { IUser } from "@/components/interfaces/user";
+import { Actions } from "@/components/utils/getActions";
 import { TypeNotification } from "@/components/utils/getTypeNotification";
 import { useAuthContext } from "@/contexts/authContext";
 import { useRouter } from "next/navigation";
@@ -26,6 +27,7 @@ export default function PersonalInfo({ dict, token, user }: Props) {
         formState: { errors },
     } = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
+        actionOnChange(Actions.UPDATE_INFO);
         try {
             const me = await apiProfile(token);
             const res = {

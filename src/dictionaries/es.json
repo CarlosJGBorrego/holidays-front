@@ -87,6 +87,16 @@
                     "title": "Error detectado",
                     "description": "¡Ups!, hubo un problema al intentar eliminar las vacaciones."
                 }
+            },
+            "updateInfo": {
+                "success": {
+                    "title": "Información personal actualizada",
+                    "description": "Se ha actualizado tu información personal con éxito"
+                },
+                "error": {
+                    "title": "Error detectado",
+                    "description": "¡Ups!, hubo un problema al intentar actualizar tu información personal."
+                }
             }
         }
     },

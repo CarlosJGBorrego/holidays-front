@@ -96,6 +96,28 @@ export default function Panel({ lang, dict, user, children }: Props) {
                             setShow={setShow}
                         />
                     )}
+                    {action === Actions.UPDATE_INFO &&
+                        typeNotification === TypeNotification.SUCCESS && (
+                            <SuccessNotification
+                                title={dict?.panel?.notifications?.updateInfo?.success?.title}
+                                description={
+                                    dict?.panel?.notifications?.updateInfo?.success?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
+                    {action === Actions.UPDATE_INFO &&
+                        typeNotification === TypeNotification.ERROR && (
+                            <ErrorNotification
+                                title={dict?.panel?.notifications?.updateInfo?.error?.title}
+                                description={
+                                    dict?.panel?.notifications?.updateInfo?.error?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
                 </div>
             )}
             <div>

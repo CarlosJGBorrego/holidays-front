@@ -87,6 +87,16 @@
                     "title": "Error Detectat",
                     "description": "Ai! Hi va haver un problema en intentar eliminar les vacances."
                 }
+            },
+            "updateInfo": {
+                "success": {
+                    "title": "Informació personal actualitzada",
+                    "description": "S'han actualitzat amb èxit les teves dades personals."
+                },
+                "error": {
+                    "title": "S'ha detectat un error",
+                    "description": "Ep! Hi va haver un problema en intentar actualitzar les teves dades personals."
+                }
             }
         }
     },

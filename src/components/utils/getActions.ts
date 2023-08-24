@@ -1,6 +1,8 @@
 export enum Actions {
     CREATE = "CREATE",
     READ = "READ",
-    UPDATE = "UPDATE",
+    UPDATE_INFO = "UPDATE_INFO",
+    UPDATE_PASS = "UPDATE_PASS",
     DELETE = "DELETE",
+    DELETE_ACCOUNT = "DELETE_ACCOUNT",
 }
