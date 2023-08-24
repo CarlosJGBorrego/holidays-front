@@ -97,6 +97,16 @@
                     "title": "S'ha detectat un error",
                     "description": "Ep! Hi va haver un problema en intentar actualitzar les teves dades personals."
                 }
+            },
+            "updatePass": {
+                "success": {
+                    "title": "Contrasenya actualitzada",
+                    "description": "S'ha actualitzat la teva contrasenya amb èxit."
+                },
+                "error": {
+                    "title": "S'ha detectat un error",
+                    "description": "Ep! La contrasenya actual no és correcta."
+                }
             }
         }
     },

@@ -118,6 +118,28 @@ export default function Panel({ lang, dict, user, children }: Props) {
                                 setShow={setShow}
                             />
                         )}
+                    {action === Actions.UPDATE_PASS &&
+                        typeNotification === TypeNotification.SUCCESS && (
+                            <SuccessNotification
+                                title={dict?.panel?.notifications?.updatePass?.success?.title}
+                                description={
+                                    dict?.panel?.notifications?.updatePass?.success?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
+                    {action === Actions.UPDATE_PASS &&
+                        typeNotification === TypeNotification.ERROR && (
+                            <ErrorNotification
+                                title={dict?.panel?.notifications?.updatePass?.error?.title}
+                                description={
+                                    dict?.panel?.notifications?.updatePass?.error?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
                 </div>
             )}
             <div>

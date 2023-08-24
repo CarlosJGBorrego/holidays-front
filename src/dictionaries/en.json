@@ -92,6 +92,16 @@
                     "title": "Error detected",
                     "description": "Oops! There was a problem trying to update your personal information."
                 }
+            },
+            "updatePass": {
+                "success": {
+                    "title": "Password updated",
+                    "description": "Your password has been successfully updated."
+                },
+                "error": {
+                    "title": "Error detected",
+                    "description": "Oops! The current password is incorrect."
+                }
             }
         }
     },

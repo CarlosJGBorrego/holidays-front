@@ -97,6 +97,16 @@
                     "title": "Erreur détectée",
                     "description": "Oups ! Un problème est survenu lors de la tentative de mise à jour de vos informations personnelles."
                 }
+            },
+            "updatePass": {
+                "success": {
+                    "title": "Mot de passe mis à jour",
+                    "description": "Votre mot de passe a été mis à jour avec succès."
+                },
+                "error": {
+                    "title": "Erreur détectée",
+                    "description": "Oups ! Le mot de passe actuel est incorrect."
+                }
             }
         }
     },

@@ -97,6 +97,16 @@
                     "title": "Error detectado",
                     "description": "¡Ups!, hubo un problema al intentar actualizar tu información personal."
                 }
+            },
+            "updatePass": {
+                "success": {
+                    "title": "Contraseña actualizada",
+                    "description": "Se ha actualizado tu contraseña con éxito"
+                },
+                "error": {
+                    "title": "Error detectado",
+                    "description": "¡Ups!, la contraseña actual no es correcta."
+                }
             }
         }
     },
