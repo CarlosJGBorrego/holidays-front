@@ -140,6 +140,17 @@ export default function Panel({ lang, dict, user, children }: Props) {
                                 setShow={setShow}
                             />
                         )}
+                    {action === Actions.DELETE_ACCOUNT &&
+                        typeNotification === TypeNotification.ERROR && (
+                            <ErrorNotification
+                                title={dict?.panel?.notifications?.deleteAccount?.error?.title}
+                                description={
+                                    dict?.panel?.notifications?.deleteAccount?.error?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
                 </div>
             )}
             <div>

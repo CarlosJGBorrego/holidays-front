@@ -107,6 +107,12 @@
                     "title": "S'ha detectat un error",
                     "description": "Ep! La contrasenya actual no és correcta."
                 }
+            },
+            "deleteAccount": {
+                "error": {
+                    "title": "S'ha detectat un error",
+                    "description": "Ep! Hi va haver un problema en intentar eliminar el teu compte."
+                }
             }
         }
     },
@@ -132,7 +138,13 @@
         "delete": {
             "title": "Eliminar compte",
             "description": "Estàs segur d'eliminar el teu compte? Aquesta acció podria ser irreversible.",
-            "button": "Sí, eliminar el meu compte"
+            "button": "Sí, eliminar el meu compte",
+            "modal": {
+                "title": "Eliminar el meu compte",
+                "description": "Aquesta acció és irreversible, segur que vols continuar?",
+                "cancel": "Cancel·lar",
+                "delete": "Eliminar"
+            }
         }
     },
     "nav": {

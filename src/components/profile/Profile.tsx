@@ -16,7 +16,7 @@ export default function Profile({ dict, token, user }: Props) {
         <div className="divide-y divide-white/5 bg-white h-full">
             <PersonalInfo dict={dict} token={token} user={user} />
             <Password dict={dict} token={token} />
-            <DeleteAccount dict={dict} />
+            <DeleteAccount dict={dict} token={token} user={user} />
         </div>
     );
 }

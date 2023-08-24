@@ -107,6 +107,12 @@
                     "title": "Erreur détectée",
                     "description": "Oups ! Le mot de passe actuel est incorrect."
                 }
+            },
+            "deleteAccount": {
+                "error": {
+                    "title": "Erreur détectée",
+                    "description": "Oops ! Un problème est survenu lors de la tentative de suppression de votre compte."
+                }
             }
         }
     },
@@ -132,7 +138,13 @@
         "delete": {
             "title": "Supprimer le Compte",
             "description": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action pourrait être irréversible.",
-            "button": "Oui, supprimer mon compte"
+            "button": "Oui, supprimer mon compte",
+            "modal": {
+                "title": "Supprimer mon compte",
+                "description": "Cette action est irréversible, êtes-vous sûr(e) de vouloir continuer ?",
+                "cancel": "Annuler",
+                "delete": "Supprimer"
+            }
         }
     },
     "nav": {

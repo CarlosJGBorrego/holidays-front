@@ -41,3 +41,23 @@ export async function apiChangePassword(data, token) {
 
     return res.json();
 }
+
+export async function apiDeleteUser(id, token) {
+    const res = await fetch(`${ROUTE_BASE}/api/users/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
+    if (!res.ok) {
+        const error = new Error("An error occurred while fetching data profile");
+
+        error.info = await res.json();
+        error.status = res.status;
+        throw error;
+    }
+
+    return res.json();
+}

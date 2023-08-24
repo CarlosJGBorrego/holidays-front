@@ -102,6 +102,12 @@
                     "title": "Error detected",
                     "description": "Oops! The current password is incorrect."
                 }
+            },
+            "deleteAccount": {
+                "error": {
+                    "title": "Error detected",
+                    "description": "Oops! There was a problem trying to delete your account."
+                }
             }
         }
     },
@@ -127,7 +133,13 @@
         "delete": {
             "title": "Delete Account",
             "description": "Are you sure you want to delete your account? This action could be irreversible.",
-            "button": "Yes, delete my account"
+            "button": "Yes, delete my account",
+            "modal": {
+                "title": "Delete my account",
+                "description": "This action is irreversible, are you sure you want to proceed?",
+                "cancel": "Cancel",
+                "delete": "Delete"
+            }
         }
     },
     "nav": {

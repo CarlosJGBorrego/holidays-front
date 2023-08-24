@@ -107,6 +107,12 @@
                     "title": "Error detectado",
                     "description": "¡Ups!, la contraseña actual no es correcta."
                 }
+            },
+            "deleteAccount": {
+                "error": {
+                    "title": "Error detectado",
+                    "description": "¡Ups!, hubo un problema al intentar eliminar tu cuenta."
+                }
             }
         }
     },
@@ -132,7 +138,13 @@
         "delete": {
             "title": "Eliminar cuenta",
             "description": "¿Estás seguro de eliminar tu cuenta?. Esta acción podría ser irreversible",
-            "button": "Sí, eliminar mi cuenta"
+            "button": "Sí, eliminar mi cuenta",
+            "modal": {
+                "title": "Eliminar mi cuenta",
+                "description": "Esta acción es irreversible, ¿estás seguro/a de hacerlo?",
+                "cancel": "Cancelar",
+                "delete": "Eliminar"
+            }
         }
     },
     "nav": {
