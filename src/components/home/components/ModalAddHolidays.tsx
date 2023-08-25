@@ -8,8 +8,8 @@ import { apiCreateHoliday } from "@/api";
 import dayjs from "dayjs";
 import { useAuthContext } from "@/contexts/authContext";
 import { useRouter } from "next/navigation";
-import { Actions } from "@/components/utils/getActions";
-import { TypeNotification } from "@/components/utils/getTypeNotification";
+import { Actions } from "@/components/notifications/getActions";
+import { TypeNotification } from "@/components/notifications/getTypeNotification";
 
 interface Props {
     dict: any;

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Actions } from "../utils/getActions";
-import SuccessNotification from "../utils/SuccessNotification";
+import { Actions } from "./getActions";
 import { useAuthContext } from "@/contexts/authContext";
-import ErrorNotification from "../utils/ErrorNotification";
-import { TypeNotification } from "../utils/getTypeNotification";
+import { TypeNotification } from "./getTypeNotification";
+import SuccessNotification from "./SuccessNotification";
+import ErrorNotification from "./ErrorNotification";
 
 interface Props {
     dict: any;

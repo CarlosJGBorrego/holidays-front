@@ -1,7 +1,7 @@
 import { apiProfile, apiUpdateProfile } from "@/api";
 import { IUser } from "@/components/interfaces/user";
-import { Actions } from "@/components/utils/getActions";
-import { TypeNotification } from "@/components/utils/getTypeNotification";
+import { Actions } from "@/components/notifications/getActions";
+import { TypeNotification } from "@/components/notifications/getTypeNotification";
 import { useAuthContext } from "@/contexts/authContext";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";

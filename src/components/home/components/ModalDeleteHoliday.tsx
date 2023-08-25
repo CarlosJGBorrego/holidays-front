@@ -4,8 +4,8 @@ import { ExclamationTriangleIcon, XMarkIcon } from "@heroicons/react/24/outline"
 import { apiDeleteHoliday } from "@/api";
 import { useRouter } from "next/navigation";
 import { useAuthContext } from "@/contexts/authContext";
-import { Actions } from "@/components/utils/getActions";
-import { TypeNotification } from "@/components/utils/getTypeNotification";
+import { Actions } from "@/components/notifications/getActions";
+import { TypeNotification } from "@/components/notifications/getTypeNotification";
 
 interface Props {
     open: boolean;

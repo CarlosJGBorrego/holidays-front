@@ -3,8 +3,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useAuthContext } from "@/contexts/authContext";
-import { Actions } from "@/components/utils/getActions";
-import { TypeNotification } from "@/components/utils/getTypeNotification";
+import { Actions } from "@/components/notifications/getActions";
+import { TypeNotification } from "@/components/notifications/getTypeNotification";
 import { apiDeleteUser } from "@/api";
 
 interface Props {

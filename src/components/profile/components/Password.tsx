@@ -1,6 +1,6 @@
 import { apiChangePassword } from "@/api";
-import { Actions } from "@/components/utils/getActions";
-import { TypeNotification } from "@/components/utils/getTypeNotification";
+import { Actions } from "@/components/notifications/getActions";
+import { TypeNotification } from "@/components/notifications/getTypeNotification";
 import { useAuthContext } from "@/contexts/authContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
