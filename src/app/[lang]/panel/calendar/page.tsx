@@ -1,6 +1,7 @@
 import { apiProfile } from "@/api";
 import { IUser } from "@/components/interfaces/user";
 import Panel from "@/components/layout/Panel";
+import Avatar from "@/components/utils/Avatar";
 import { getDictionary } from "@/dictionaries";
 import { cookies } from "next/dist/client/components/headers";
 
@@ -18,7 +19,12 @@ export default async function Page({ params: { lang } }: Props) {
 
     return (
         <Panel lang={lang} dict={dict} user={user}>
-            <div>Calendario y grupos</div>
+            <div>
+                Calendario y grupos
+                <div>
+                    <Avatar user={user} />
+                </div>
+            </div>
         </Panel>
     );
 }
