@@ -147,6 +147,11 @@
             }
         }
     },
+    "calendar": {
+        "group": {
+            "members": "Miembros"
+        }
+    },
     "nav": {
         "home": "Mis vacaciones",
         "calendar": "Calendario"

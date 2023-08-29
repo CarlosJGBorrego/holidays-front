@@ -142,6 +142,11 @@
             }
         }
     },
+    "calendar": {
+        "group": {
+            "members": "Members"
+        }
+    },
     "nav": {
         "home": "My Holidays",
         "calendar": "Calendar"

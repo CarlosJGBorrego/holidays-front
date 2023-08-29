@@ -40,6 +40,9 @@ export default async function Page({ params: { lang } }: Props) {
                         3.3 Subir la imagen a Cloudinary o similar para almacenar las imagenes
                         subidas por los usuarios.
                     </li>
+                    <li>
+                        4. Añadir prop color a grupos y que solo el admin del grupo pueda editar.
+                    </li>
                 </ul>
             </div>
         </Panel>

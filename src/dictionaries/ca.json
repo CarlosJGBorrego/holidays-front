@@ -147,6 +147,11 @@
             }
         }
     },
+    "calendar": {
+        "group": {
+            "members": "Membres"
+        }
+    },
     "nav": {
         "home": "Les meves vacances",
         "calendar": "Calendari"

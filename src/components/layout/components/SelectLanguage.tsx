@@ -51,7 +51,7 @@ export default function SelectLanguage({ dict }: any) {
     const language: ILanguage | undefined = languages?.find((item) => item?.locale === lang);
 
     return (
-        <div className="flex sm:block justify-end items-center">
+        <div className="flex sm:block justify-end items-center ">
             <Listbox value={language} onChange={onChange}>
                 {({ open }) => (
                     <>
@@ -84,7 +84,7 @@ export default function SelectLanguage({ dict }: any) {
                                 leave="transition ease-in duration-100"
                                 leaveFrom="opacity-100"
                                 leaveTo="opacity-0">
-                                <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                <Listbox.Options className="absolute z-50 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                     {languages.map((language: ILanguage) => (
                                         <Listbox.Option
                                             key={language.id}
