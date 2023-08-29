@@ -1,6 +1,9 @@
 import { apiGroupsByUser, apiProfile } from "@/api";
+import { apiHolidaysByGroup } from "@/api/holidays";
+import ShowCalendar from "@/components/calendar/ShowCalendar";
 import Group from "@/components/groups/Group";
 import { IGroup } from "@/components/interfaces/group";
+import { IHoliday } from "@/components/interfaces/holiday";
 import { IUser } from "@/components/interfaces/user";
 import Panel from "@/components/layout/Panel";
 import { getDictionary } from "@/dictionaries";
@@ -18,6 +21,7 @@ export default async function Page({ params: { lang } }: Props) {
     const dict = await getDictionary(lang);
     const user: IUser = await apiProfile(token);
     const groups: IGroup[] = await apiGroupsByUser(user?.id, token);
+    const holidaysByGroup: IHoliday[] = await apiHolidaysByGroup(1, token);
 
     return (
         <Panel lang={lang} dict={dict} user={user}>
@@ -26,6 +30,19 @@ export default async function Page({ params: { lang } }: Props) {
                     {groups?.map((group: IGroup) => {
                         return <Group key={group?.id} dict={dict} group={group} />;
                     })}
+                </div>
+                <div className="mt-10">
+                    Filtro:
+                    <p>Por grupos</p>
+                    <p>Por usuarios</p>
+                </div>
+                <div className="mt-10">
+                    <ShowCalendar
+                        dict={dict}
+                        holidays={holidaysByGroup}
+                        user={user}
+                        token={token!}
+                    />
                 </div>
             </div>
         </Panel>

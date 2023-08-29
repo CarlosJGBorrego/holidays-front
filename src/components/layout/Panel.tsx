@@ -39,16 +39,16 @@ export default function Panel({ lang, dict, user, children }: Props) {
             current: pathname === `/${lang}/panel`,
         },
         {
-            name: dict?.nav?.calendar,
-            href: "/panel/calendar",
-            icon: CalendarDaysIcon,
-            current: pathname === `/${lang}/panel/calendar`,
-        },
-        {
             name: dict?.nav?.group,
             href: "/panel/group",
             icon: UserGroupIcon,
             current: pathname === `/${lang}/panel/group`,
+        },
+        {
+            name: dict?.nav?.calendar,
+            href: "/panel/calendar",
+            icon: CalendarDaysIcon,
+            current: pathname === `/${lang}/panel/calendar`,
         },
         {
             name: "Pendientes",
