@@ -154,7 +154,8 @@
     },
     "nav": {
         "home": "Les meves vacances",
-        "calendar": "Calendari"
+        "calendar": "Calendari",
+        "group": "Els meus grups"
     },
     "settings": {
         "profile": "Perfil",

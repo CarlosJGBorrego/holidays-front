@@ -7,6 +7,7 @@ import {
     CalendarDaysIcon,
     ExclamationTriangleIcon,
     HomeModernIcon,
+    UserGroupIcon,
     XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -42,6 +43,12 @@ export default function Panel({ lang, dict, user, children }: Props) {
             href: "/panel/calendar",
             icon: CalendarDaysIcon,
             current: pathname === `/${lang}/panel/calendar`,
+        },
+        {
+            name: dict?.nav?.group,
+            href: "/panel/group",
+            icon: UserGroupIcon,
+            current: pathname === `/${lang}/panel/group`,
         },
         {
             name: "Pendientes",

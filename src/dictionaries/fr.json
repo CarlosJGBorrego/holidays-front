@@ -154,7 +154,8 @@
     },
     "nav": {
         "home": "Mes vacances",
-        "calendar": "Calendrier"
+        "calendar": "Calendrier",
+        "group": "Mes groupes"
     },
     "settings": {
         "profile": "Profil",

@@ -152,9 +152,11 @@
             "members": "Miembros"
         }
     },
+
     "nav": {
         "home": "Mis vacaciones",
-        "calendar": "Calendario"
+        "calendar": "Calendario",
+        "group": "Mis grupos"
     },
     "settings": {
         "profile": "Perfil",

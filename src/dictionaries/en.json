@@ -149,7 +149,8 @@
     },
     "nav": {
         "home": "My Holidays",
-        "calendar": "Calendar"
+        "calendar": "Calendar",
+        "group": "My groups"
     },
     "settings": {
         "profile": "Profile",
