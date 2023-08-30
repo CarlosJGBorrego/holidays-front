@@ -8,6 +8,7 @@ import { IHoliday } from "../interfaces/holiday";
 import getTranslationMonth from "../utils/getTranslationMonths";
 import ModalInfo from "./components/ModalInfo";
 import { IUser } from "../interfaces/user";
+import BubbleEvent from "./components/BubbleEvent";
 
 interface Props {
     dict: any;
@@ -64,6 +65,12 @@ export default function ShowCalendar({ dict, holidays }: Props) {
         }
 
         setOpen(true);
+    };
+
+    const handleNumberOfUsers = (dayCalendar: DayCalendar) => {
+        const numberUsers = listUserDate?.find((item) => item.day === dayCalendar.date)?.user
+            ?.length;
+        return numberUsers;
     };
 
     const listUserDate: any[] = [];
@@ -150,9 +157,7 @@ export default function ShowCalendar({ dict, holidays }: Props) {
                                             disabled={typeof day === "number"}
                                             className={classNames(
                                                 day.isCurrentMonth
-                                                    ? daysOfHolidays.includes(day?.date)
-                                                        ? "bg-lime-500 hover:bg-lime-600 text-white font-semibold"
-                                                        : "bg-white hover:bg-gray-100 text-gray-900"
+                                                    ? "bg-white hover:bg-gray-100 text-gray-900"
                                                     : "",
                                                 dayIdx === 0 ? "rounded-tl-lg" : "",
                                                 dayIdx === 6 ? "rounded-tr-lg" : "",
@@ -175,6 +180,11 @@ export default function ShowCalendar({ dict, holidays }: Props) {
                                                 )}>
                                                 {day?.date?.substring(8)}
                                             </time>
+                                            <BubbleEvent
+                                                day={day}
+                                                daysOfHolidays={daysOfHolidays}
+                                                numberUser={handleNumberOfUsers(day)}
+                                            />
                                         </button>
                                     ))}
                                 </div>

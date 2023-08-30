@@ -26,7 +26,7 @@ export default async function Page({ params: { lang } }: Props) {
     return (
         <Panel lang={lang} dict={dict} user={user}>
             <div className="px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                     {groups?.map((group: IGroup) => {
                         return <Group key={group?.id} dict={dict} group={group} />;
                     })}

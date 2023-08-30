@@ -78,7 +78,7 @@ export default function ModalInfo({ holidays, dict, open, setOpen }: Props) {
                                                         return (
                                                             <li
                                                                 key={user?.id}
-                                                                className="flex justify-between gap-x-4 px-2 py-3">
+                                                                className="flex gap-x-4 px-2 py-3">
                                                                 <div className="flex gap-x-4">
                                                                     <img
                                                                         className="h-12 w-12 flex-none rounded-full bg-gray-50"
@@ -93,11 +93,6 @@ export default function ModalInfo({ holidays, dict, open, setOpen }: Props) {
                                                                             {user?.email}
                                                                         </p>
                                                                     </div>
-                                                                </div>
-                                                                <div className="sm:flex text-center text-xs font-semibold text-primary">
-                                                                    <p> {item?.start}</p>
-                                                                    <p className="sm:px-1.5">-</p>
-                                                                    <p>{item?.end}</p>
                                                                 </div>
                                                             </li>
                                                         );
