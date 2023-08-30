@@ -150,6 +150,10 @@
     "calendar": {
         "group": {
             "members": "Membres"
+        },
+        "modalCalendar": {
+            "title": "Vacances",
+            "description": "Personnes actuellement en vacances"
         }
     },
     "nav": {

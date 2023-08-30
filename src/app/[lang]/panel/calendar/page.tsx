@@ -37,12 +37,7 @@ export default async function Page({ params: { lang } }: Props) {
                     <p>Por usuarios</p>
                 </div>
                 <div className="mt-10">
-                    <ShowCalendar
-                        dict={dict}
-                        holidays={holidaysByGroup}
-                        user={user}
-                        token={token!}
-                    />
+                    <ShowCalendar dict={dict} holidays={holidaysByGroup} />
                 </div>
             </div>
         </Panel>

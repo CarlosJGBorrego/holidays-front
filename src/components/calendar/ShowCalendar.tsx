@@ -6,15 +6,12 @@ import { DayCalendar } from "../interfaces/dayCalendar";
 import dayjs from "dayjs";
 import { IHoliday } from "../interfaces/holiday";
 import getTranslationMonth from "../utils/getTranslationMonths";
-import { IUser } from "../interfaces/user";
 import ModalInfo from "./components/ModalInfo";
+import { IUser } from "../interfaces/user";
 
 interface Props {
     dict: any;
     holidays: IHoliday[];
-    user: IUser;
-    token: string;
-    editCalendar?: boolean;
 }
 
 const currentDate = dayjs();
@@ -25,10 +22,11 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
 }
 
-export default function ShowCalendar({ dict, holidays, user, token }: Props) {
+export default function ShowCalendar({ dict, holidays }: Props) {
     const [months, setMonths] = useState(getDaysOfYear(parseFloat(currentYear)));
     const [selectedYear, setSelectedYear] = useState(currentYear);
     const [open, setOpen] = useState(false);
+    const [holidayByDate, setHolidayByDate] = useState([]);
 
     const handleYear = (year: string) => {
         if (year === currentYear) {
@@ -59,20 +57,50 @@ export default function ShowCalendar({ dict, holidays, user, token }: Props) {
         });
     });
 
-    const handleModalInfo = () => {
+    const handleModalInfo = (dayCalendar: DayCalendar) => {
+        const foundHoliday = listUserDate?.find((item) => item.day === dayCalendar.date);
+        if (foundHoliday) {
+            setHolidayByDate([].concat(foundHoliday));
+        }
+
         setOpen(true);
     };
 
+    const listUserDate: any[] = [];
+    let setDays = new Set();
+    holidays?.forEach((item: any) => {
+        item.forEach((event: IHoliday) => {
+            const dates = getDatesInRange(event?.start, event?.end);
+            dates.forEach((day: string) => {
+                let res = {
+                    day: day,
+                    user: [event?.user],
+                };
+                if (setDays.has(day)) {
+                    const foundDay = listUserDate.find((itemList) => itemList?.day === day);
+                    if (foundDay) {
+                        foundDay?.user?.push(res?.user[0]);
+                    }
+                } else {
+                    setDays.add(day);
+                    listUserDate.push(res);
+                }
+            });
+        });
+    });
+
+    listUserDate.sort((a: any, b: any) => a.day.localeCompare(b.day));
+
     return (
         <div>
-            <ModalInfo open={open} setOpen={setOpen} dict={dict} />
+            <ModalInfo open={open} setOpen={setOpen} dict={dict} holidays={holidayByDate} />
             <div>
                 <header className="flex items-center justify-between px-8 pt-6">
                     <h1 className="text-base font-semibold leading-6 text-gray-900">
                         <button
                             type="button"
                             onClick={() => handleYear(currentYear)}
-                            className={`rounded-md  px-2.5 py-1.5 text-md font-bold 
+                            className={`rounded-md px-2.5 py-1.5 text-md font-bold 
                           focus-visible:outline
                           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
                               selectedYear === currentYear
@@ -118,7 +146,7 @@ export default function ShowCalendar({ dict, holidays, user, token }: Props) {
                                         <button
                                             key={dayIdx}
                                             type="button"
-                                            onClick={handleModalInfo}
+                                            onClick={() => handleModalInfo(day)}
                                             disabled={typeof day === "number"}
                                             className={classNames(
                                                 day.isCurrentMonth

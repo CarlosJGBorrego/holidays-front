@@ -1,14 +1,21 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Dispatch, Fragment, SetStateAction, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { IUser } from "@/components/interfaces/user";
+
+type IObject = {
+    day: string;
+    user: IUser[];
+};
 
 interface Props {
+    holidays: IObject[];
     dict: any;
     open: boolean;
     setOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function ModalInfo({ dict, open, setOpen }: Props) {
+export default function ModalInfo({ holidays, dict, open, setOpen }: Props) {
     return (
         <>
             <Transition.Root show={open} as={Fragment}>
@@ -49,67 +56,55 @@ export default function ModalInfo({ dict, open, setOpen }: Props) {
                                             <Dialog.Title
                                                 as="h3"
                                                 className="text-lg font-semibold leading-6 text-gray-900">
-                                                Vacaciones
+                                                {dict?.calendar?.modalCalendar?.title}
                                             </Dialog.Title>
                                             <div className="mt-2">
                                                 <p className="text-sm text-gray-500">
-                                                    Personas que están actualmente de vacaciones
+                                                    {dict?.calendar?.modalCalendar?.description}
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="sm:px-4">
-                                        <div>
-                                            <h3 className="mb-2 mt-8 font-semibold text-pink-500">
-                                                Nombre del grupo
-                                            </h3>
-                                            <ul>
-                                                <li className="flex justify-between gap-x-4 px-2 py-3">
-                                                    <div className="flex gap-x-4">
-                                                        <img
-                                                            className="h-12 w-12 flex-none rounded-full bg-gray-50"
-                                                            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                            alt=""
-                                                        />
-                                                        <div className="min-w-0">
-                                                            <p className="text-sm font-semibold leading-6 text-gray-900">
-                                                                Carlos Jesus García Borrego
-                                                            </p>
-                                                            <p className="truncate text-xs leading-5 text-gray-500">
-                                                                garciaborrego.carlos@capitole-consulting.com
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="sm:flex text-center text-xs font-semibold text-primary">
-                                                        <p>06/08/2023</p>
-                                                        <p className="sm:px-1.5">-</p>
-                                                        <p>12/08/2023</p>
-                                                    </div>
-                                                </li>
-                                                <li className="flex justify-between gap-x-4 px-2 py-3">
-                                                    <div className="flex gap-x-4">
-                                                        <img
-                                                            className="h-12 w-12 flex-none rounded-full bg-gray-50"
-                                                            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                            alt=""
-                                                        />
-                                                        <div className="min-w-0">
-                                                            <p className="text-sm font-semibold leading-6 text-gray-900">
-                                                                Carlos Jesus García Borrego
-                                                            </p>
-                                                            <p className="truncate text-xs leading-5 text-gray-500">
-                                                                garciaborrego.carlos@capitole-consulting.com
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="sm:flex text-center text-xs font-semibold text-primary">
-                                                        <p>06/08/2023</p>
-                                                        <p className="sm:px-1.5">-</p>
-                                                        <p>12/08/2023</p>
-                                                    </div>
-                                                </li>
+                                        {holidays?.length === 0 && (
+                                            <p className="mt-8 text-md font-semibold text-gray-900">
+                                                No hay personas de vacaciones
+                                            </p>
+                                        )}
+                                        {holidays?.length !== 0 && (
+                                            <ul className="mt-5">
+                                                {holidays?.map((item: any) => {
+                                                    return item?.user?.map((user: IUser) => {
+                                                        return (
+                                                            <li
+                                                                key={user?.id}
+                                                                className="flex justify-between gap-x-4 px-2 py-3">
+                                                                <div className="flex gap-x-4">
+                                                                    <img
+                                                                        className="h-12 w-12 flex-none rounded-full bg-gray-50"
+                                                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                                        alt=""
+                                                                    />
+                                                                    <div className="min-w-0">
+                                                                        <p className="text-sm font-semibold leading-6 text-gray-900">
+                                                                            {user?.username}
+                                                                        </p>
+                                                                        <p className="truncate text-xs leading-5 text-gray-500">
+                                                                            {user?.email}
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="sm:flex text-center text-xs font-semibold text-primary">
+                                                                    <p> {item?.start}</p>
+                                                                    <p className="sm:px-1.5">-</p>
+                                                                    <p>{item?.end}</p>
+                                                                </div>
+                                                            </li>
+                                                        );
+                                                    });
+                                                })}
                                             </ul>
-                                        </div>
+                                        )}
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>

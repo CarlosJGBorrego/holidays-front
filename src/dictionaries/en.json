@@ -53,7 +53,7 @@
                     "startPast": "You cannot enter past dates.",
                     "endFuture": "You cannot enter a date with a year beyond the next year."
                 },
-                "success": "Vacation has been created successfully."
+                "success": "Holiday has been created successfully."
             },
             "delete": {}
         },
@@ -65,22 +65,22 @@
         "notifications": {
             "add": {
                 "success": {
-                    "title": "Vacations Created",
-                    "description": "Vacations have been created successfully."
+                    "title": "Holidays Created",
+                    "description": "Holidays have been created successfully."
                 },
                 "error": {
                     "title": "Error Detected",
-                    "description": "Oops! There was a problem while trying to create the vacations."
+                    "description": "Oops! There was a problem while trying to create the holidays."
                 }
             },
             "remove": {
                 "success": {
-                    "title": "Vacations Removed",
-                    "description": "Vacations have been removed successfully."
+                    "title": "Holidays Removed",
+                    "description": "Holidays have been removed successfully."
                 },
                 "error": {
                     "title": "Error Detected",
-                    "description": "Oops! There was a problem while trying to remove the vacations."
+                    "description": "Oops! There was a problem while trying to remove the holidays."
                 }
             },
             "updateInfo": {
@@ -145,6 +145,10 @@
     "calendar": {
         "group": {
             "members": "Members"
+        },
+        "modalCalendar": {
+            "title": "Holidays",
+            "description": "People who are currently on holiday"
         }
     },
     "nav": {
