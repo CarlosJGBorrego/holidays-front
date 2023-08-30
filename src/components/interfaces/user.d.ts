@@ -1,3 +1,6 @@
+import { IGroup } from "./group";
+import { IHoliday } from "./holiday";
+
 export interface IUser {
     id: number;
     username: string;
@@ -6,6 +9,8 @@ export interface IUser {
     provider: string;
     confirmed: boolean;
     blocked: boolean;
+    groups?: IGroup[];
+    holidays?: IHoliday[];
     createdAt: Date;
     updatedAt: Date;
 }

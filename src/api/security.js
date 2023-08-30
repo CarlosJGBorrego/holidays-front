@@ -24,7 +24,7 @@ export async function apiLogin(email, password) {
 }
 
 export async function apiProfile(token) {
-    const res = await fetch(`${ROUTE_BASE}/api/users/me`, {
+    const res = await fetch(`${ROUTE_BASE}/api/users/me?populate[0]=groups`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
