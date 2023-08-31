@@ -52,10 +52,8 @@ export default function ShowCalendar({ dict, holidays }: Props) {
         return datesInRange;
     }
 
-    const daysOfHolidays = holidays.flatMap((item: any) => {
-        return item.flatMap((event: IHoliday) => {
-            return getDatesInRange(event?.start, event?.end);
-        });
+    const daysOfHolidays = holidays.flatMap((event: IHoliday) => {
+        return getDatesInRange(event?.start, event?.end);
     });
 
     const handleModalInfo = (dayCalendar: DayCalendar) => {
@@ -76,25 +74,23 @@ export default function ShowCalendar({ dict, holidays }: Props) {
     };
 
     const listUserDate: any[] = [];
-    let setDays = new Set();
-    holidays?.forEach((item: any) => {
-        item.forEach((event: IHoliday) => {
-            const dates = getDatesInRange(event?.start, event?.end);
-            dates.forEach((day: string) => {
-                let res = {
-                    day: day,
-                    user: [event?.user],
-                };
-                if (setDays.has(day)) {
-                    const foundDay = listUserDate.find((itemList) => itemList?.day === day);
-                    if (foundDay) {
-                        foundDay?.user?.push(res?.user[0]);
-                    }
-                } else {
-                    setDays.add(day);
-                    listUserDate.push(res);
+    const setDays = new Set();
+    holidays?.forEach((event: IHoliday) => {
+        const dates = getDatesInRange(event?.start, event?.end);
+        dates.forEach((day: string) => {
+            const res = {
+                day: day,
+                user: [event?.user],
+            };
+            if (setDays.has(day)) {
+                const foundDay = listUserDate.find((itemList) => itemList?.day === day);
+                if (foundDay) {
+                    foundDay.user.push(res.user[0]);
                 }
-            });
+            } else {
+                setDays.add(day);
+                listUserDate.push(res);
+            }
         });
     });
 
