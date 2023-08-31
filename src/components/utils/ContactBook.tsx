@@ -83,7 +83,7 @@ export default function ContactBook({ group }: Props) {
                                     alt=""
                                 />
                                 <div className="min-w-0">
-                                    <p className="text-sm font-semibold leading-6 text-gray-900">
+                                    <p className="text-sm font-semibold leading-6 text-gray-900 capitalize">
                                         {person.username}
                                     </p>
                                     <p className="mt-1 truncate text-xs leading-5 text-gray-500">

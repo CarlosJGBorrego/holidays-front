@@ -86,7 +86,7 @@ export default function ModalInfo({ holidays, dict, open, setOpen }: Props) {
                                                                         alt=""
                                                                     />
                                                                     <div className="min-w-0">
-                                                                        <p className="text-sm font-semibold leading-6 text-gray-900">
+                                                                        <p className="text-sm font-semibold leading-6 text-gray-900 capitalize">
                                                                             {user?.username}
                                                                         </p>
                                                                         <p className="truncate text-xs leading-5 text-gray-500">

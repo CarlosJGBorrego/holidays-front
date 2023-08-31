@@ -54,7 +54,7 @@ export default function ListHolidays({ holidays, token, dict }: Props) {
                                     />
                                 </div>
                             </Disclosure.Button>
-                            <Disclosure.Panel className="border border-t-0 border-gray-200 mb-10 px-6 rounded-lg">
+                            <Disclosure.Panel className="border border-t-0 border-gray-200 mb-10 px-6 rounded-b-lg">
                                 <ul role="list" className="divide-y divide-gray-100">
                                     {holidays?.map((holiday) => (
                                         <li
