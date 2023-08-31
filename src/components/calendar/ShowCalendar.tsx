@@ -62,6 +62,8 @@ export default function ShowCalendar({ dict, holidays }: Props) {
         const foundHoliday = listUserDate?.find((item) => item.day === dayCalendar.date);
         if (foundHoliday) {
             setHolidayByDate([].concat(foundHoliday));
+        } else {
+            setHolidayByDate([]);
         }
 
         setOpen(true);
