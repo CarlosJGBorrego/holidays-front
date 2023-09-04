@@ -32,7 +32,6 @@ export default function FilterHolidays({ holidays, groups, dict }: Props) {
         });
     });
 
-    const [filteredGroup, setFilteredGroup] = useState(groups);
     const [filteredHolidays, setFilteredHolidays] = useState(holidays);
     const [filteredUser, setFilteredUser] = useState(listUsersFilter);
     const [clearAll, setClearAll] = useState(false);
@@ -42,28 +41,11 @@ export default function FilterHolidays({ holidays, groups, dict }: Props) {
     });
 
     const onSubmit = () => {
-        const IdUsersInSelectedGroups = filteredGroup
-            .flatMap((item) => item?.users)
-            .flatMap((user) => user?.id);
-
         const idUsersInSeletectedUsers = filteredUser.flatMap((user) => user?.id);
 
-        const IdUsersFilterResult = IdUsersInSelectedGroups.filter((item) =>
-            idUsersInSeletectedUsers.includes(item)
-        );
-
         setFilteredHolidays(
-            holidays.filter((holiday) => IdUsersFilterResult.includes(holiday?.user?.id))
+            holidays.filter((holiday) => idUsersInSeletectedUsers.includes(holiday?.user?.id))
         );
-    };
-
-    const handleCheckboxGroup = (group: any) => {
-        setClearAll(false);
-        if (filteredGroup.find((item) => item?.id === group?.id)) {
-            setFilteredGroup(filteredGroup.filter((item: any) => item?.id !== group?.id));
-        } else {
-            setFilteredGroup([...filteredGroup, group]);
-        }
     };
 
     const handleCheckboxUser = (user: any) => {
@@ -76,14 +58,8 @@ export default function FilterHolidays({ holidays, groups, dict }: Props) {
     };
 
     const handleClearAll = () => {
-        setFilteredGroup([]);
         setFilteredUser([]);
         setClearAll(true);
-    };
-
-    const handleSelectAllGroups = () => {
-        setClearAll(false);
-        setFilteredGroup(groups);
     };
 
     const handleSelectAllUsers = () => {
@@ -109,7 +85,7 @@ export default function FilterHolidays({ holidays, groups, dict }: Props) {
                                         className="mr-2 h-5 w-5 flex-none text-gray-400 group-hover:text-gray-500"
                                         aria-hidden="true"
                                     />
-                                    2 {dict?.calendar?.filter?.filters}
+                                    {dict?.calendar?.filter?.filters}
                                 </Disclosure.Button>
                             </div>
                             <div className="pl-6">
@@ -130,56 +106,6 @@ export default function FilterHolidays({ holidays, groups, dict }: Props) {
                     <Disclosure.Panel className="border-t border-gray-200 py-10">
                         <div className="mx-auto grid grid-cols-1 gap-x-4 px-4 text-sm sm:px-6 md:gap-x-6 lg:px-8">
                             <fieldset>
-                                <div className="flex space-x-6 divide-x items-center border-gray-200">
-                                    <legend className="block font-medium mb-2.5 text-black capitalize">
-                                        {dict?.calendar?.filter?.groups}
-                                    </legend>
-                                    <button
-                                        type="button"
-                                        onClick={handleSelectAllGroups}
-                                        className="block mb-2.5 pl-6 text-gray-400">
-                                        {dict?.calendar?.filter?.selectAll}
-                                    </button>
-                                </div>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-y-2 gap-x-20">
-                                    {groups?.map((option) => (
-                                        <Controller
-                                            key={option.id}
-                                            control={control}
-                                            render={() => (
-                                                <div
-                                                    key={option.id}
-                                                    className="flex items-center text-base sm:text-sm">
-                                                    <input
-                                                        onChange={() => handleCheckboxGroup(option)}
-                                                        id={`group-${option?.id}`}
-                                                        name={`group-${option?.id}`}
-                                                        value={option?.name}
-                                                        checked={
-                                                            filteredGroup.includes(option) &&
-                                                            !clearAll
-                                                        }
-                                                        type="checkbox"
-                                                        className="h-4 w-4 flex-shrink-0 rounded border-gray-300 text-primary focus:ring-primary"
-                                                    />
-                                                    <label
-                                                        htmlFor={`group-${option?.id}`}
-                                                        className="ml-3 min-w-0 flex-1 text-gray-600 capitalize">
-                                                        {option?.name}
-                                                    </label>
-                                                </div>
-                                            )}
-                                            defaultValue={false}
-                                            name="groups"
-                                            rules={{
-                                                validate: (value: boolean) => value,
-                                            }}
-                                        />
-                                    ))}
-                                </div>
-                            </fieldset>
-
-                            <fieldset className="mt-10">
                                 <div className="flex space-x-6 divide-x items-center border-gray-200">
                                     <legend className="block font-medium mb-2.5 text-black capitalize">
                                         {dict?.calendar?.filter?.users}
