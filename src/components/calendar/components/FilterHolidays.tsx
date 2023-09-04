@@ -22,9 +22,6 @@ type Input = {
 };
 
 export default function FilterHolidays({ holidays, groups, dict }: Props) {
-    const [filteredGroup, setFilteredGroup] = useState(groups);
-    const [filteredHolidays, setFilteredHolidays] = useState(holidays);
-
     const listUsersFilter: IUser[] = [];
     const setIdUsers = new Set();
     groups?.map((item: any) => {
@@ -36,6 +33,10 @@ export default function FilterHolidays({ holidays, groups, dict }: Props) {
         });
     });
 
+    const [filteredGroup, setFilteredGroup] = useState(groups);
+    const [filteredHolidays, setFilteredHolidays] = useState(holidays);
+    const [filteredUser, setFilteredUser] = useState(listUsersFilter);
+
     const { register, handleSubmit, control } = useForm<Input>({
         defaultValues: { groups: groups, users: listUsersFilter },
     });
@@ -43,20 +44,32 @@ export default function FilterHolidays({ holidays, groups, dict }: Props) {
     const onSubmit = () => {
         const IdUsersInSelectedGroups = filteredGroup
             .flatMap((item) => item?.users)
-            .flatMap((user) => user.id);
+            .flatMap((user) => user?.id);
 
-        console.log("IdUsersInSelectedGroups", IdUsersInSelectedGroups);
+        const idUsersInSeletectedUsers = filteredUser.flatMap((user) => user?.id);
+
+        const IdUsersFilterResult = IdUsersInSelectedGroups.filter((item) =>
+            idUsersInSeletectedUsers.includes(item)
+        );
 
         setFilteredHolidays(
-            holidays.filter((holiday) => IdUsersInSelectedGroups.includes(holiday?.user?.id))
+            holidays.filter((holiday) => IdUsersFilterResult.includes(holiday?.user?.id))
         );
     };
 
     const handleCheckboxGroup = (group: any) => {
         if (filteredGroup.find((item) => item?.id === group?.id)) {
-            setFilteredGroup(filteredGroup.filter((item: any) => item.id !== group.id));
+            setFilteredGroup(filteredGroup.filter((item: any) => item?.id !== group?.id));
         } else {
             setFilteredGroup([...filteredGroup, group]);
+        }
+    };
+
+    const handleCheckboxUser = (user: any) => {
+        if (filteredUser.find((item) => item?.id === user?.id)) {
+            setFilteredUser(filteredUser.filter((item: any) => item.id !== user?.id));
+        } else {
+            setFilteredUser([...filteredUser, user]);
         }
     };
 
@@ -109,8 +122,8 @@ export default function FilterHolidays({ holidays, groups, dict }: Props) {
                                                     className="flex items-center text-base sm:text-sm">
                                                     <input
                                                         onChange={() => handleCheckboxGroup(option)}
-                                                        id={`user-${option?.id}`}
-                                                        name={`user-${option?.id}`}
+                                                        id={`group-${option?.id}`}
+                                                        name={`group-${option?.id}`}
                                                         value={option?.name}
                                                         defaultChecked={filteredGroup.includes(
                                                             option
@@ -119,7 +132,7 @@ export default function FilterHolidays({ holidays, groups, dict }: Props) {
                                                         className="h-4 w-4 flex-shrink-0 rounded border-gray-300 text-primary focus:ring-primary"
                                                     />
                                                     <label
-                                                        htmlFor={`user-${option?.id}`}
+                                                        htmlFor={`group-${option?.id}`}
                                                         className="ml-3 min-w-0 flex-1 text-gray-600 capitalize">
                                                         {option?.name}
                                                     </label>
@@ -139,23 +152,37 @@ export default function FilterHolidays({ holidays, groups, dict }: Props) {
                                 <legend className="block font-medium mb-2.5">Users</legend>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-y-2 gap-x-20">
                                     {listUsersFilter?.map((option) => (
-                                        <div
+                                        <Controller
                                             key={option.id}
-                                            className="flex items-center text-base sm:text-sm">
-                                            <input
-                                                {...register(`users.${option.id}.id`)}
-                                                id={`user-${option?.id}`}
-                                                name={`user-${option?.id}`}
-                                                value={option?.username}
-                                                type="checkbox"
-                                                className="h-4 w-4 flex-shrink-0 rounded border-gray-300 text-primary focus:ring-primary"
-                                            />
-                                            <label
-                                                htmlFor={`user-${option?.id}`}
-                                                className="ml-3 min-w-0 flex-1 text-gray-600 capitalize">
-                                                {option?.username}
-                                            </label>
-                                        </div>
+                                            control={control}
+                                            render={() => (
+                                                <div
+                                                    key={option.id}
+                                                    className="flex items-center text-base sm:text-sm">
+                                                    <input
+                                                        onChange={() => handleCheckboxUser(option)}
+                                                        id={`user-${option?.id}`}
+                                                        name={`user-${option?.id}`}
+                                                        value={option?.username}
+                                                        defaultChecked={filteredUser.includes(
+                                                            option
+                                                        )}
+                                                        type="checkbox"
+                                                        className="h-4 w-4 flex-shrink-0 rounded border-gray-300 text-primary focus:ring-primary"
+                                                    />
+                                                    <label
+                                                        htmlFor={`user-${option?.id}`}
+                                                        className="ml-3 min-w-0 flex-1 text-gray-600 capitalize">
+                                                        {option?.username}
+                                                    </label>
+                                                </div>
+                                            )}
+                                            defaultValue={false}
+                                            name="users"
+                                            rules={{
+                                                validate: (value: boolean) => value,
+                                            }}
+                                        />
                                     ))}
                                 </div>
                             </fieldset>
