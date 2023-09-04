@@ -149,6 +149,14 @@
         "modalCalendar": {
             "title": "Holidays",
             "description": "People who are currently on holiday"
+        },
+        "filter": {
+            "filters": "Filters",
+            "clearAll": "Clear All",
+            "button": "Filter",
+            "groups": "Groups",
+            "users": "Users",
+            "selectAll": "Select All"
         }
     },
     "nav": {

@@ -154,6 +154,14 @@
         "modalCalendar": {
             "title": "Vacances",
             "description": "Persones que estan actualment de vacances"
+        },
+        "filter": {
+            "filters": "Filtres",
+            "clearAll": "Netejar-ho tot",
+            "button": "Filtrar",
+            "groups": "Grups",
+            "users": "Usuaris",
+            "selectAll": "Selecciona-ho tot"
         }
     },
     "nav": {

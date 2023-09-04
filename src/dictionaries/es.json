@@ -154,6 +154,14 @@
         "modalCalendar": {
             "title": "Vacaciones",
             "description": "Personas que están actulamente de vacaciones"
+        },
+        "filter": {
+            "filters": "Filtros",
+            "clearAll": "Limpiar todo",
+            "button": "Filtrar",
+            "groups": "Grupos",
+            "users": "Usuarios",
+            "selectAll": "Seleccionar todo"
         }
     },
 
