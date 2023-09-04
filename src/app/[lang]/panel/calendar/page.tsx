@@ -4,6 +4,7 @@ import ShowCalendar from "@/components/calendar/ShowCalendar";
 import FilterHolidays from "@/components/calendar/components/FilterHolidays";
 import Group from "@/components/groups/Group";
 import { IGroup } from "@/components/interfaces/group";
+import { IHoliday } from "@/components/interfaces/holiday";
 import { IUser } from "@/components/interfaces/user";
 import Panel from "@/components/layout/Panel";
 import { getDictionary } from "@/dictionaries";
@@ -30,12 +31,11 @@ export default async function Page({ params: { lang } }: Props) {
     const dict = await getDictionary(lang);
     const user: IUser = await apiProfile(token);
     const groups: IGroup[] = await apiGroupsByUser(user?.id, token);
-
-    const idUsers = user?.groups?.flatMap((item) => item?.id);
-    const holidaysByGroup = await allHolidaysByGroups(idUsers!, token!);
+    const idGroups = user?.groups?.flatMap((item) => item?.id);
+    const holidaysByGroup = await allHolidaysByGroups(idGroups!, token!);
 
     const flattenedHolidays = holidaysByGroup.flat();
-    let uniqueHolidays = [];
+    let uniqueHolidays: IHoliday[] = [];
     let seenIds = new Set();
 
     for (const holiday of flattenedHolidays) {
@@ -56,10 +56,7 @@ export default async function Page({ params: { lang } }: Props) {
                     })}
                 </div>
                 <div className="mt-10">
-                    <FilterHolidays holidays={flattenedHolidays} />
-                </div>
-                <div className="mt-10">
-                    <ShowCalendar dict={dict} holidays={uniqueHolidays} />
+                    <FilterHolidays holidays={uniqueHolidays} groups={groups} dict={dict} />
                 </div>
             </div>
         </Panel>

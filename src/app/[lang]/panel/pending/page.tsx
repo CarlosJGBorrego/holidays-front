@@ -41,11 +41,13 @@ export default async function Page({ params: { lang } }: Props) {
                         subidas por los usuarios.
                     </li>
                     <li>
-                        4. Añadir prop color a grupos y que solo el admin del grupo pueda editar.
+                        4. Añadir prop color a grupos y que solo el admin del grupo pueda editar,
+                        expulsar gente o añadir.
                     </li>
                     <li className="ml-5">
                         4.1 Agregar el color correspondiente al grupo en BubbleCalendar.
                     </li>
+                    <li>5. Terminar los filtros en Calendar.</li>
                 </ul>
             </div>
         </Panel>
