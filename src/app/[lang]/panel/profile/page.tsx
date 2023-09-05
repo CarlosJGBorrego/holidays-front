@@ -15,11 +15,11 @@ export default async function Page({ params: { lang } }: Props) {
     const cookiesStore = cookies();
     const token = cookiesStore.get(process.env.NEXT_PUBLIC_AUTH_COOKIE_NAME!)?.value;
     const dict = await getDictionary(lang);
-    const user: IUser = await apiProfile(token);
+    const me: IUser = await apiProfile(token);
 
     return (
-        <Panel lang={lang} dict={dict} user={user}>
-            <Profile dict={dict} token={token!} user={user} />
+        <Panel lang={lang} dict={dict} user={me}>
+            <Profile dict={dict} token={token!} user={me} />
         </Panel>
     );
 }

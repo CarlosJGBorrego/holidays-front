@@ -17,12 +17,12 @@ export default async function Home({ params: { lang } }: Props) {
     const token = cookiesStore.get(process.env.NEXT_PUBLIC_AUTH_COOKIE_NAME!)?.value;
     const dict = await getDictionary(lang);
 
-    const user: IUser = await apiProfile(token);
-    const myHolidays: IHoliday[] = await apiHolidaysByUserEmail(user?.email, token);
+    const me: IUser = await apiProfile(token);
+    const myHolidays: IHoliday[] = await apiHolidaysByUserEmail(me?.email, token);
 
     return (
-        <Panel lang={lang} dict={dict} user={user}>
-            <Calendar dict={dict} holidays={myHolidays} user={user} token={token!} />
+        <Panel lang={lang} dict={dict} user={me}>
+            <Calendar dict={dict} holidays={myHolidays} user={me} token={token!} />
         </Panel>
     );
 }

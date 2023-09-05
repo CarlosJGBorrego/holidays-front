@@ -14,10 +14,10 @@ export default async function Page({ params: { lang } }: Props) {
     const cookiesStore = cookies();
     const token = cookiesStore.get(process.env.NEXT_PUBLIC_AUTH_COOKIE_NAME!)?.value;
     const dict = await getDictionary(lang);
-    const user: IUser = await apiProfile(token);
+    const me: IUser = await apiProfile(token);
 
     return (
-        <Panel lang={lang} dict={dict} user={user}>
+        <Panel lang={lang} dict={dict} user={me}>
             <div className="mx-10">
                 <h1 className="font-semibold text-lg mb-2.5">Cosas pendientes</h1>
                 <ul className="space-y-1">
@@ -47,7 +47,6 @@ export default async function Page({ params: { lang } }: Props) {
                     <li className="ml-5">
                         4.1 Agregar el color correspondiente al grupo en BubbleCalendar.
                     </li>
-                    <li>5. Terminar los filtros en Calendar.</li>
                 </ul>
             </div>
         </Panel>
