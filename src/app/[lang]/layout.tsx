@@ -18,7 +18,7 @@ export default function RootLayout({
     params: { lang: string };
 }) {
     return (
-        <html lang={params.lang}>
+        <html className="dark" lang={params.lang}>
             <body className={inter?.className}>
                 <AuthContextProvider lang={params.lang}>{children}</AuthContextProvider>
             </body>
