@@ -1,4 +1,6 @@
-import { apiAdminsGroups, apiProfile } from "@/api";
+import { apiAdminsGroups, apiGroupsByUser, apiProfile } from "@/api";
+import ListGroups from "@/components/groups/ListGroups";
+import { IGroup } from "@/components/interfaces/group";
 import { IUser } from "@/components/interfaces/user";
 import { IUserGroup } from "@/components/interfaces/userGroups";
 import Panel from "@/components/layout/Panel";
@@ -16,11 +18,14 @@ export default async function Page({ params: { lang } }: Props) {
     const token = cookiesStore.get(process.env.NEXT_PUBLIC_AUTH_COOKIE_NAME!)?.value;
     const dict = await getDictionary(lang);
     const me: IUser = await apiProfile(token);
-    const adminsList: IUserGroup = await apiAdminsGroups(token);
+    const groups: IGroup[] = await apiGroupsByUser(me?.id, token);
+    const adminsList: IUserGroup[] = await apiAdminsGroups(token);
 
     return (
         <Panel lang={lang} dict={dict} user={me}>
-            <div className="px-8">Grupos y edicion de estos, consultar quien es el admin....</div>
+            <div className="px-8">
+                <ListGroups groups={groups} dict={dict} admins={adminsList} />
+            </div>
         </Panel>
     );
 }

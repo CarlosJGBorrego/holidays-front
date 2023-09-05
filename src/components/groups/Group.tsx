@@ -8,9 +8,10 @@ import ContactBook from "../utils/ContactBook";
 interface Props {
     dict: any;
     group: IGroup;
+    idAdmin: number;
 }
 
-export default function Group({ dict, group }: Props) {
+export default function Group({ dict, group, idAdmin }: Props) {
     return (
         <div className="w-full">
             <Disclosure defaultOpen>
@@ -46,7 +47,7 @@ export default function Group({ dict, group }: Props) {
                             </div>
                         </Disclosure.Button>
                         <Disclosure.Panel className="border border-t-0 border-gray-200 mb-10 rounded-b-md max-h-60 overflow-y-auto">
-                            <ContactBook group={group} />
+                            <ContactBook group={group} idAdmin={idAdmin!} />
                         </Disclosure.Panel>
                     </>
                 )}

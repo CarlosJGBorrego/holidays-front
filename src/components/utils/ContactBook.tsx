@@ -3,6 +3,7 @@ import { IUser } from "../interfaces/user";
 
 interface Props {
     group: IGroup;
+    idAdmin: number;
 }
 
 type IObject = {
@@ -40,7 +41,7 @@ const lettersArray = [
     { letter: "Z", array: [] },
 ];
 
-export default function ContactBook({ group }: Props) {
+export default function ContactBook({ group, idAdmin }: Props) {
     const copyLettersArray = JSON.parse(JSON.stringify([...lettersArray]));
     let list: any[] = [];
 
@@ -75,8 +76,8 @@ export default function ContactBook({ group }: Props) {
                     </div>
 
                     <ul role="list" className="divide-y divide-gray-100">
-                        {group?.array.map((person: any) => (
-                            <li key={person.email} className="flex gap-x-4 px-4 py-5">
+                        {group?.array.map((person: IUser) => (
+                            <li key={person?.email} className="flex gap-x-4 px-4 py-5">
                                 <img
                                     className="h-12 w-12 flex-none rounded-full bg-gray-50"
                                     src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -84,10 +85,16 @@ export default function ContactBook({ group }: Props) {
                                 />
                                 <div className="min-w-0">
                                     <p className="text-sm font-semibold leading-6 text-gray-900 capitalize">
-                                        {person.username}
+                                        {person?.username}
+
+                                        {idAdmin === person?.id && (
+                                            <span className="pl-2 text-emerald-500 font-medium text-xs">
+                                                (Admin)
+                                            </span>
+                                        )}
                                     </p>
                                     <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                                        {person.email}
+                                        {person?.email}
                                     </p>
                                 </div>
                             </li>
