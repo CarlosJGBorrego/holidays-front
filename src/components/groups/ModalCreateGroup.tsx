@@ -39,7 +39,6 @@ export default function ModalCreateGroup({ dict, me, token }: Props) {
                 },
             };
             const newGroup = await apiCreateGroup(res, token);
-            console.log("new", newGroup);
             const userGroup = {
                 data: {
                     isAdmin: true,

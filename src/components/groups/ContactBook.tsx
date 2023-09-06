@@ -85,7 +85,7 @@ export default function ContactBook({ group, idAdmin, me, dict }: Props) {
             <nav className="h-full overflow-y-auto" aria-label="Directory">
                 {list.map((group) => (
                     <div key={group?.letter} className="relative">
-                        <div className="sticky top-0 z-10 border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900">
+                        <div className=" border-y border-b-gray-200 border-t-gray-100 bg-gray-50 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900">
                             <h3>{group?.letter}</h3>
                         </div>
 
