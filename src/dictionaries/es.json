@@ -68,7 +68,7 @@
             "to": "a"
         },
         "notifications": {
-            "add": {
+            "addHoliday": {
                 "success": {
                     "title": "Vacaciones creadas",
                     "description": "Se ha creado las vacaciones con éxito"
@@ -78,7 +78,7 @@
                     "description": "¡Ups!, hubo un problema al intentar crear las vacaciones."
                 }
             },
-            "remove": {
+            "removeHoliday": {
                 "success": {
                     "title": "Vacaciones eliminadas",
                     "description": "Se ha eliminado las vacaciones con éxito"
@@ -112,6 +112,26 @@
                 "error": {
                     "title": "Error detectado",
                     "description": "¡Ups!, hubo un problema al intentar eliminar tu cuenta."
+                }
+            },
+            "addGroup": {
+                "success": {
+                    "title": "Grupo creado",
+                    "description": "Se ha creado el grupo con éxito"
+                },
+                "error": {
+                    "title": "Error detectado",
+                    "description": "¡Ups!, hubo un problema al intentar crear el grupo."
+                }
+            },
+            "removeGroup": {
+                "success": {
+                    "title": "Grupo eliminado",
+                    "description": "Se ha eliminado el grupo con éxito"
+                },
+                "error": {
+                    "title": "Error detectado",
+                    "description": "¡Ups!, hubo un problema al intentar eliminar el grupo."
                 }
             }
         }

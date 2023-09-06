@@ -44,7 +44,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
         const start = dayjs(data?.start);
         const end = dayjs(data?.end);
         let valid = true;
-        actionOnChange(Actions.CREATE);
+        actionOnChange(Actions.CREATE_HOLIDAY);
 
         if (start.isAfter(end)) {
             setError(dict?.panel?.modal?.add?.errors?.startAfterEnd);

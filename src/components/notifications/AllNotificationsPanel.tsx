@@ -25,38 +25,50 @@ export default function AllNotificationsPanel({ dict }: Props) {
         <div>
             {notification && (
                 <div className="relative top-0 right-0">
-                    {action === Actions.CREATE && typeNotification === TypeNotification.SUCCESS && (
-                        <SuccessNotification
-                            title={dict?.panel?.notifications?.add?.success?.title}
-                            description={dict?.panel?.notifications?.add?.success?.description}
-                            show={show}
-                            setShow={setShow}
-                        />
-                    )}
-                    {action === Actions.CREATE && typeNotification === TypeNotification.ERROR && (
-                        <ErrorNotification
-                            title={dict?.panel?.notifications?.add?.error?.title}
-                            description={dict?.panel?.notifications?.add?.error?.description}
-                            show={show}
-                            setShow={setShow}
-                        />
-                    )}
-                    {action === Actions.DELETE && typeNotification === TypeNotification.SUCCESS && (
-                        <SuccessNotification
-                            title={dict?.panel?.notifications?.remove?.success?.title}
-                            description={dict?.panel?.notifications?.remove?.success?.description}
-                            show={show}
-                            setShow={setShow}
-                        />
-                    )}
-                    {action === Actions.DELETE && typeNotification === TypeNotification.ERROR && (
-                        <ErrorNotification
-                            title={dict?.panel?.notifications?.remove?.error?.title}
-                            description={dict?.panel?.notifications?.remove?.error?.description}
-                            show={show}
-                            setShow={setShow}
-                        />
-                    )}
+                    {action === Actions.CREATE_HOLIDAY &&
+                        typeNotification === TypeNotification.SUCCESS && (
+                            <SuccessNotification
+                                title={dict?.panel?.notifications?.addHoliday?.success?.title}
+                                description={
+                                    dict?.panel?.notifications?.addHoliday?.success?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
+                    {action === Actions.CREATE_HOLIDAY &&
+                        typeNotification === TypeNotification.ERROR && (
+                            <ErrorNotification
+                                title={dict?.panel?.notifications?.addHoliday?.error?.title}
+                                description={
+                                    dict?.panel?.notifications?.addHoliday?.error?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
+                    {action === Actions.DELETE_HOLIDAY &&
+                        typeNotification === TypeNotification.SUCCESS && (
+                            <SuccessNotification
+                                title={dict?.panel?.notifications?.removeHoliday?.success?.title}
+                                description={
+                                    dict?.panel?.notifications?.removeHoliday?.success?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
+                    {action === Actions.DELETE_HOLIDAY &&
+                        typeNotification === TypeNotification.ERROR && (
+                            <ErrorNotification
+                                title={dict?.panel?.notifications?.removeHoliday?.error?.title}
+                                description={
+                                    dict?.panel?.notifications?.removeHoliday?.error?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
                     {action === Actions.UPDATE_INFO &&
                         typeNotification === TypeNotification.SUCCESS && (
                             <SuccessNotification
@@ -107,6 +119,50 @@ export default function AllNotificationsPanel({ dict }: Props) {
                                 title={dict?.panel?.notifications?.deleteAccount?.error?.title}
                                 description={
                                     dict?.panel?.notifications?.deleteAccount?.error?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
+                    {action === Actions.CREATE_GROUP &&
+                        typeNotification === TypeNotification.SUCCESS && (
+                            <SuccessNotification
+                                title={dict?.panel?.notifications?.addGroup?.success?.title}
+                                description={
+                                    dict?.panel?.notifications?.addGroup?.success?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
+                    {action === Actions.CREATE_GROUP &&
+                        typeNotification === TypeNotification.ERROR && (
+                            <ErrorNotification
+                                title={dict?.panel?.notifications?.addGroup?.error?.title}
+                                description={
+                                    dict?.panel?.notifications?.addGroup?.error?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
+                    {action === Actions.DELETE_GROUP &&
+                        typeNotification === TypeNotification.SUCCESS && (
+                            <SuccessNotification
+                                title={dict?.panel?.notifications?.removeGroup?.success?.title}
+                                description={
+                                    dict?.panel?.notifications?.removeGroup?.success?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
+                    {action === Actions.DELETE_GROUP &&
+                        typeNotification === TypeNotification.ERROR && (
+                            <ErrorNotification
+                                title={dict?.panel?.notifications?.removeGroup?.error?.title}
+                                description={
+                                    dict?.panel?.notifications?.removeGroup?.error?.description
                                 }
                                 show={show}
                                 setShow={setShow}

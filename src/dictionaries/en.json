@@ -63,7 +63,7 @@
             "to": "to"
         },
         "notifications": {
-            "add": {
+            "addHoliday": {
                 "success": {
                     "title": "Holidays Created",
                     "description": "Holidays have been created successfully."
@@ -73,7 +73,7 @@
                     "description": "Oops! There was a problem while trying to create the holidays."
                 }
             },
-            "remove": {
+            "removeHoliday": {
                 "success": {
                     "title": "Holidays Removed",
                     "description": "Holidays have been removed successfully."
@@ -107,6 +107,26 @@
                 "error": {
                     "title": "Error detected",
                     "description": "Oops! There was a problem trying to delete your account."
+                }
+            },
+            "addGroup": {
+                "success": {
+                    "title": "Group created",
+                    "description": "The group has been successfully created"
+                },
+                "error": {
+                    "title": "Error detected",
+                    "description": "Oops! There was a problem while trying to create the group."
+                }
+            },
+            "removeGroup": {
+                "success": {
+                    "title": "Group removed",
+                    "description": "The group has been successfully removed"
+                },
+                "error": {
+                    "title": "Error detected",
+                    "description": "Oops! There was a problem while trying to remove the group."
                 }
             }
         }

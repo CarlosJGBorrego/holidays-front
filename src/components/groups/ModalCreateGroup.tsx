@@ -30,7 +30,7 @@ export default function ModalCreateGroup({ dict, me, token }: Props) {
     const { notificationOnChange, actionOnChange, typeNotificationOnChange } = useAuthContext();
 
     const onSubmit: SubmitHandler<IGroup> = async (data) => {
-        actionOnChange(Actions.CREATE);
+        actionOnChange(Actions.CREATE_GROUP);
         try {
             const res = {
                 data: {

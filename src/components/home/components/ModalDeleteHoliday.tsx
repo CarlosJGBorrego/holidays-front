@@ -20,7 +20,7 @@ export default function ModalDeleteHolidays({ open, setOpen, id, token, dict }: 
     const { notificationOnChange, actionOnChange, typeNotificationOnChange } = useAuthContext();
 
     const handleDeleteHoliday = async () => {
-        actionOnChange(Actions.DELETE);
+        actionOnChange(Actions.DELETE_HOLIDAY);
         try {
             await apiDeleteHoliday(id, token);
             setOpen(false);
