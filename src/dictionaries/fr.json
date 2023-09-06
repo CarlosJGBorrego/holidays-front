@@ -164,6 +164,17 @@
             "selectAll": "Sélectionner tout"
         }
     },
+    "group": {
+        "create": "Créer un groupe",
+        "edit": "Éditer",
+        "getOut": "Quitter le groupe",
+        "modal": {
+            "title": "Nouveau groupe",
+            "description": "Création d'un nouveau groupe",
+            "label": "Nom du groupe",
+            "button": "Créer"
+        }
+    },
     "nav": {
         "home": "Mes vacances",
         "calendar": "Calendrier",

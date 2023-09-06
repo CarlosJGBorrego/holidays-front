@@ -1,6 +1,7 @@
 "use client";
 
 import { IGroup } from "../interfaces/group";
+import { IUser } from "../interfaces/user";
 import { IUserGroup } from "../interfaces/userGroups";
 import Group from "./Group";
 
@@ -8,9 +9,10 @@ interface Props {
     groups: IGroup[];
     dict: any;
     admins: IUserGroup[];
+    me: IUser;
 }
 
-export default function ListGroups({ groups, dict, admins }: Props) {
+export default function ListGroups({ groups, dict, admins, me }: Props) {
     const getIdAdmin = (idGroup: number) => {
         const idAdminUser = admins?.find(
             (userGroup: IUserGroup) => userGroup?.groups?.id === idGroup
@@ -28,6 +30,7 @@ export default function ListGroups({ groups, dict, admins }: Props) {
                         dict={dict}
                         group={group}
                         idAdmin={getIdAdmin(group?.id)}
+                        me={me}
                     />
                 );
             })}

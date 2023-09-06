@@ -164,6 +164,17 @@
             "selectAll": "Selecciona-ho tot"
         }
     },
+    "group": {
+        "create": "Crear grup",
+        "edit": "Editar",
+        "getOut": "Deixar el grup",
+        "modal": {
+            "title": "Nou grup",
+            "description": "Creació d'un nou grup",
+            "label": "Nom del grup",
+            "button": "Crear"
+        }
+    },
     "nav": {
         "home": "Les meves vacances",
         "calendar": "Calendari",

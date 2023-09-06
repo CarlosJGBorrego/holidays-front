@@ -159,6 +159,17 @@
             "selectAll": "Select All"
         }
     },
+    "group": {
+        "create": "Create group",
+        "edit": "Edit",
+        "getOut": "Leave group",
+        "modal": {
+            "title": "New group",
+            "description": "Creation of a new group",
+            "label": "Group name",
+            "button": "Create"
+        }
+    },
     "nav": {
         "home": "My Holidays",
         "calendar": "Calendar",

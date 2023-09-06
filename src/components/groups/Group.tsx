@@ -3,15 +3,17 @@
 import { Disclosure } from "@headlessui/react";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { IGroup } from "../interfaces/group";
-import ContactBook from "../utils/ContactBook";
+import ContactBook from "./ContactBook";
+import { IUser } from "../interfaces/user";
 
 interface Props {
     dict: any;
     group: IGroup;
     idAdmin: number;
+    me: IUser;
 }
 
-export default function Group({ dict, group, idAdmin }: Props) {
+export default function Group({ dict, group, idAdmin, me }: Props) {
     return (
         <div className="w-full">
             <Disclosure defaultOpen>
@@ -47,7 +49,7 @@ export default function Group({ dict, group, idAdmin }: Props) {
                             </div>
                         </Disclosure.Button>
                         <Disclosure.Panel className="border border-t-0 border-gray-200 mb-10 rounded-b-md max-h-60 overflow-y-auto">
-                            <ContactBook group={group} idAdmin={idAdmin!} />
+                            <ContactBook group={group} idAdmin={idAdmin!} me={me} dict={dict} />
                         </Disclosure.Panel>
                     </>
                 )}

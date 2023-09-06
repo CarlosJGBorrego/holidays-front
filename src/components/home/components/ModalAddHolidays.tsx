@@ -84,7 +84,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
 
     return (
         <>
-            <div className="">
+            <div>
                 <button
                     type="button"
                     onClick={() => setOpen(true)}
@@ -106,7 +106,7 @@ export default function ModalAddHolidays({ dict, user, token }: Props) {
                         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
                     </Transition.Child>
 
-                    <div className="fixed inset-0 z-10 overflow-y-auto">
+                    <div className="fixed inset-0 z-10 overflow-y-auto lg:pl-72">
                         <form
                             onSubmit={handleSubmit(onSubmit)}
                             className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">

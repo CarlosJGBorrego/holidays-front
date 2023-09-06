@@ -29,7 +29,7 @@ export default async function Page({ params: { lang } }: Props) {
                     </h1>
                     <ul className="space-y-1">
                         <li>1. Borrar en cascada los holidays cuando se elimina un usuario.</li>
-                        <li>2. Añadir rol admin a la persona que cree un grupo.</li>
+                        <li>2. Añadir rol admin a la persona que cree un grupo. ✔️</li>
                         <li className="ml-5">
                             2.1 Si se elimina a esa persona, comprobar si hay mas gente en el grupo,
                             sino hay eliminar grupo.

@@ -1,6 +1,5 @@
 import { apiAdminsGroups, apiGroupsByUser, apiProfile } from "@/api";
 import ListGroups from "@/components/groups/ListGroups";
-import ModalCreateGroup from "@/components/groups/ModalCreateGroup";
 import { IGroup } from "@/components/interfaces/group";
 import { IUser } from "@/components/interfaces/user";
 import { IUserGroup } from "@/components/interfaces/userGroups";
@@ -24,12 +23,7 @@ export default async function Page({ params: { lang } }: Props) {
 
     return (
         <Panel lang={lang} dict={dict} user={me}>
-            <div className="px-8">
-                <div className="my-10">
-                    <ModalCreateGroup dict={dict} me={me} token={token!} />
-                </div>
-                <ListGroups groups={groups} dict={dict} admins={adminsList} me={me} />
-            </div>
+            <div className="px-8">Hola ID</div>
         </Panel>
     );
 }
