@@ -8,6 +8,7 @@ interface Props {
     idAdmin: number;
     me: IUser;
     dict: any;
+    token: string;
 }
 
 type IObject = {
@@ -45,7 +46,7 @@ const lettersArray = [
     { letter: "Z", array: [] },
 ];
 
-export default function ContactBook({ group, idAdmin, me, dict }: Props) {
+export default function ContactBook({ group, idAdmin, me, dict, token }: Props) {
     const copyLettersArray = JSON.parse(JSON.stringify([...lettersArray]));
     const list: IObject[] = [];
 
@@ -81,7 +82,9 @@ export default function ContactBook({ group, idAdmin, me, dict }: Props) {
 
     return (
         <div>
-            {isPathGroup && <ActionsGroup isAdmin={iAmAdmin} dict={dict} />}
+            {isPathGroup && (
+                <ActionsGroup iAmAdmin={iAmAdmin} group={group} me={me} dict={dict} token={token} />
+            )}
             <nav className="h-full overflow-y-auto" aria-label="Directory">
                 {list.map((group) => (
                     <div key={group?.letter} className="relative">

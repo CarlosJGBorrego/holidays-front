@@ -109,11 +109,11 @@ export default function ModalCreateGroup({ dict, me, token }: Props) {
                                             <Dialog.Title
                                                 as="h3"
                                                 className="text-lg font-semibold leading-6 text-gray-900">
-                                                {dict?.group?.modal?.title}
+                                                {dict?.group?.modal?.add?.title}
                                             </Dialog.Title>
                                             <div className="mt-2">
                                                 <p className="text-sm text-gray-500">
-                                                    {dict?.group?.modal?.description}
+                                                    {dict?.group?.modal?.add?.description}
                                                 </p>
                                             </div>
                                         </div>
@@ -122,7 +122,7 @@ export default function ModalCreateGroup({ dict, me, token }: Props) {
                                         <label
                                             htmlFor="start"
                                             className="mb-1 block text-sm font-medium leading-6 text-gray-900">
-                                            {dict?.group?.modal?.label}
+                                            {dict?.group?.modal?.add?.label}
                                         </label>
 
                                         <input
@@ -148,7 +148,7 @@ export default function ModalCreateGroup({ dict, me, token }: Props) {
                                         <button
                                             type="submit"
                                             className={`rounded-md bg-primary hover:bg-secondary px-4 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary`}>
-                                            {dict?.group?.modal?.button}
+                                            {dict?.group?.modal?.add?.button}
                                         </button>
                                     </div>
                                 </Dialog.Panel>

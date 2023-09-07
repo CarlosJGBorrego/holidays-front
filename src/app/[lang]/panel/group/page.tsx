@@ -28,7 +28,13 @@ export default async function Page({ params: { lang } }: Props) {
                 <div className="my-10">
                     <ModalCreateGroup dict={dict} me={me} token={token!} />
                 </div>
-                <ListGroups groups={groups} dict={dict} admins={adminsList} me={me} />
+                <ListGroups
+                    groups={groups}
+                    dict={dict}
+                    admins={adminsList}
+                    me={me}
+                    token={token!}
+                />
             </div>
         </Panel>
     );

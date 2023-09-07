@@ -11,9 +11,10 @@ interface Props {
     group: IGroup;
     idAdmin: number;
     me: IUser;
+    token: string;
 }
 
-export default function Group({ dict, group, idAdmin, me }: Props) {
+export default function Group({ dict, group, idAdmin, me, token }: Props) {
     return (
         <div className="w-full">
             <Disclosure defaultOpen>
@@ -49,7 +50,13 @@ export default function Group({ dict, group, idAdmin, me }: Props) {
                             </div>
                         </Disclosure.Button>
                         <Disclosure.Panel className="border border-t-0 border-gray-200 mb-10 rounded-b-md max-h-60 overflow-y-auto">
-                            <ContactBook group={group} idAdmin={idAdmin!} me={me} dict={dict} />
+                            <ContactBook
+                                group={group}
+                                idAdmin={idAdmin!}
+                                me={me}
+                                dict={dict}
+                                token={token}
+                            />
                         </Disclosure.Panel>
                     </>
                 )}

@@ -133,6 +133,16 @@
                     "title": "Erreur détectée",
                     "description": "Oups ! Il y a eu un problème lors de la tentative de suppression du groupe."
                 }
+            },
+            "getOutGroup": {
+                "success": {
+                    "title": "Vous avez quitté le groupe",
+                    "description": "Vous avez quitté le groupe avec succès"
+                },
+                "error": {
+                    "title": "Erreur détectée",
+                    "description": "Oups ! Il y a eu un problème lors de la tentative de quitter le groupe."
+                }
             }
         }
     },
@@ -189,10 +199,24 @@
         "edit": "Éditer",
         "getOut": "Quitter le groupe",
         "modal": {
-            "title": "Nouveau groupe",
-            "description": "Création d'un nouveau groupe",
-            "label": "Nom du groupe",
-            "button": "Créer"
+            "add": {
+                "title": "Nouveau groupe",
+                "description": "Création d'un nouveau groupe",
+                "label": "Nom du groupe",
+                "button": "Créer"
+            },
+            "remove": {
+                "title": "Supprimer le groupe",
+                "description": "Si vous quittez le groupe, il sera définitivement supprimé. Êtes-vous sûr de vouloir continuer ?",
+                "cancel": "Annuler",
+                "delete": "Supprimer"
+            },
+            "getOut": {
+                "title": "Quitter le groupe",
+                "description": "Voulez-vous quitter le groupe ? Si vous êtes administrateur, veuillez transférer votre rôle avant de quitter le groupe.",
+                "cancel": "Annuler",
+                "delete": "Quitter"
+            }
         }
     },
     "nav": {

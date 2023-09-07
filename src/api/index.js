@@ -1,7 +1,15 @@
 import { apiLogin, apiProfile } from "./security";
 import { apiHolidaysByUserEmail, apiCreateHoliday, apiDeleteHoliday } from "./holidays";
 import { apiUpdateProfile, apiChangePassword, apiDeleteUser } from "./profile";
-import { apiGroupsByUser, apiAdminsGroups, apiCreateGroup, apiCreateUserGroup } from "./groups";
+import {
+    apiGroupsByUser,
+    apiAdminsGroups,
+    apiCreateGroup,
+    apiCreateUserGroup,
+    apiUpdateGroup,
+    apiDeleteGroup,
+    apiDeleteUserGroup,
+} from "./groups";
 
 export const ROUTE_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -18,4 +26,7 @@ export {
     apiAdminsGroups,
     apiCreateGroup,
     apiCreateUserGroup,
+    apiUpdateGroup,
+    apiDeleteGroup,
+    apiDeleteUserGroup,
 };

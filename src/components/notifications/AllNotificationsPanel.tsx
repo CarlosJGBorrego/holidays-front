@@ -168,6 +168,28 @@ export default function AllNotificationsPanel({ dict }: Props) {
                                 setShow={setShow}
                             />
                         )}
+                    {action === Actions.GETOUT_GROUP &&
+                        typeNotification === TypeNotification.SUCCESS && (
+                            <SuccessNotification
+                                title={dict?.panel?.notifications?.getOutGroup?.success?.title}
+                                description={
+                                    dict?.panel?.notifications?.getOutGroup?.success?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
+                    {action === Actions.GETOUT_GROUP &&
+                        typeNotification === TypeNotification.ERROR && (
+                            <ErrorNotification
+                                title={dict?.panel?.notifications?.getOutGroup?.error?.title}
+                                description={
+                                    dict?.panel?.notifications?.getOutGroup?.error?.description
+                                }
+                                show={show}
+                                setShow={setShow}
+                            />
+                        )}
                 </div>
             )}
         </div>

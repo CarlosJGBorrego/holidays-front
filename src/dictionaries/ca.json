@@ -133,6 +133,16 @@
                     "title": "Error detectat",
                     "description": "Ups! Hi va haver un problema en intentar eliminar el grup."
                 }
+            },
+            "getOutGroup": {
+                "success": {
+                    "title": "Has sortit del grup",
+                    "description": "Has sortit del grup amb èxit"
+                },
+                "error": {
+                    "title": "Error detectat",
+                    "description": "Ups! Hi va haver un problema en intentar sortir del grup."
+                }
             }
         }
     },
@@ -189,10 +199,24 @@
         "edit": "Editar",
         "getOut": "Deixar el grup",
         "modal": {
-            "title": "Nou grup",
-            "description": "Creació d'un nou grup",
-            "label": "Nom del grup",
-            "button": "Crear"
+            "add": {
+                "title": "Nou grup",
+                "description": "Creació d'un nou grup",
+                "label": "Nom del grup",
+                "button": "Crear"
+            },
+            "remove": {
+                "title": "Eliminar el grup",
+                "description": "Si surts del grup, aquest esborrarà permanentment. Esteu segur/a de voler continuar?",
+                "cancel": "Cancel·lar",
+                "delete": "Eliminar"
+            },
+            "getOut": {
+                "title": "Sortir del grup",
+                "description": "Voleu sortir del grup? Si sou administrador, si us plau, transfereixi el vostre rol abans de sortir del grup.",
+                "cancel": "Cancel·lar",
+                "delete": "Sortir"
+            }
         }
     },
     "nav": {

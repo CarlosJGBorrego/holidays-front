@@ -128,6 +128,16 @@
                     "title": "Error detected",
                     "description": "Oops! There was a problem while trying to remove the group."
                 }
+            },
+            "getOutGroup": {
+                "success": {
+                    "title": "You left the group",
+                    "description": "You have successfully left the group"
+                },
+                "error": {
+                    "title": "Error detected",
+                    "description": "Oops! There was a problem while trying to leave the group."
+                }
             }
         }
     },
@@ -155,10 +165,24 @@
             "description": "Are you sure you want to delete your account? This action could be irreversible.",
             "button": "Yes, delete my account",
             "modal": {
-                "title": "Delete my account",
-                "description": "This action is irreversible, are you sure you want to proceed?",
-                "cancel": "Cancel",
-                "delete": "Delete"
+                "add": {
+                    "title": "Delete my account",
+                    "description": "This action is irreversible, are you sure you want to proceed?",
+                    "cancel": "Cancel",
+                    "delete": "Delete"
+                },
+                "remove": {
+                    "title": "Delete Group",
+                    "description": "If you leave the group, it will be permanently deleted. Are you sure you want to do this?",
+                    "cancel": "Cancel",
+                    "delete": "Delete"
+                },
+                "getOut": {
+                    "title": "Leave the Group",
+                    "description": "Do you want to leave the group? If you are an admin, please transfer your role before leaving the group.",
+                    "cancel": "Cancel",
+                    "delete": "Leave"
+                }
             }
         }
     },

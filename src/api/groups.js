@@ -21,6 +21,48 @@ export async function apiCreateGroup(data, token) {
     return res.json();
 }
 
+export async function apiUpdateGroup(id, data, token) {
+    console.log("id", id, "data", data);
+    const res = await fetch(`${ROUTE_BASE}/api/groups/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+    });
+
+    if (!res.ok) {
+        const error = new Error("An error occurred while fetching updating group");
+
+        error.info = await res.json();
+        error.status = res.status;
+        throw error;
+    }
+
+    return res.json();
+}
+
+export async function apiDeleteGroup(id, token) {
+    const res = await fetch(`${ROUTE_BASE}/api/groups/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
+    if (!res.ok) {
+        const error = new Error("An error occurred while fetching delete group");
+
+        error.info = await res.json();
+        error.status = res.status;
+        throw error;
+    }
+
+    return res.json();
+}
+
 export async function apiGroupsByUser(id, token) {
     const res = await fetch(`${ROUTE_BASE}/api/groups/user/${id}`, {
         method: "GET",
@@ -72,7 +114,27 @@ export async function apiCreateUserGroup(data, token) {
     });
 
     if (!res.ok) {
-        const error = new Error("An error occurred while fetching user-groups");
+        const error = new Error("An error occurred while fetching create user-groups");
+
+        error.info = await res.json();
+        error.status = res.status;
+        throw error;
+    }
+
+    return res.json();
+}
+
+export async function apiDeleteUserGroup(id, token) {
+    const res = await fetch(`${ROUTE_BASE}/api/user-groups/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
+    if (!res.ok) {
+        const error = new Error("An error occurred while fetching delete user-groups");
 
         error.info = await res.json();
         error.status = res.status;

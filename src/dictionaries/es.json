@@ -133,6 +133,16 @@
                     "title": "Error detectado",
                     "description": "¡Ups!, hubo un problema al intentar eliminar el grupo."
                 }
+            },
+            "getOutGroup": {
+                "success": {
+                    "title": "Salistes del grupo",
+                    "description": "Has salido del grupo con éxito"
+                },
+                "error": {
+                    "title": "Error detectado",
+                    "description": "¡Ups!, hubo un problema al intentar salir del grupo."
+                }
             }
         }
     },
@@ -189,10 +199,24 @@
         "edit": "Editar",
         "getOut": "Dejar grupo",
         "modal": {
-            "title": "Nuevo grupo",
-            "description": "Creación de un nuevo grupo",
-            "label": "Nombre del grupo",
-            "button": "Crear"
+            "add": {
+                "title": "Nuevo grupo",
+                "description": "Creación de un nuevo grupo",
+                "label": "Nombre del grupo",
+                "button": "Crear"
+            },
+            "remove": {
+                "title": "Eliminar grupo",
+                "description": "Si sales del grupo se eliminará para siempre, ¿Estás seguro/a de querer hacerlo?.",
+                "cancel": "Cancelar",
+                "delete": "Eliminar"
+            },
+            "getOut": {
+                "title": "Salir del grupo",
+                "description": "¿Quieres salir del grupo?. En caso de ser Admin, traspasa tu rol antes de salir del grupo.",
+                "cancel": "Cancelar",
+                "delete": "Salir"
+            }
         }
     },
     "nav": {

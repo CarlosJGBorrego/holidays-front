@@ -10,9 +10,10 @@ interface Props {
     dict: any;
     admins: IUserGroup[];
     me: IUser;
+    token: string;
 }
 
-export default function ListGroups({ groups, dict, admins, me }: Props) {
+export default function ListGroups({ groups, dict, admins, me, token }: Props) {
     const getIdAdmin = (idGroup: number) => {
         const idAdminUser = admins?.find(
             (userGroup: IUserGroup) => userGroup?.groups?.id === idGroup
@@ -31,6 +32,7 @@ export default function ListGroups({ groups, dict, admins, me }: Props) {
                         group={group}
                         idAdmin={getIdAdmin(group?.id)}
                         me={me}
+                        token={token}
                     />
                 );
             })}
