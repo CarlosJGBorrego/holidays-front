@@ -3,6 +3,7 @@ import { useState } from "react";
 import ModalGetOut from "./ModalGetOut";
 import { IGroup } from "../../interfaces/group";
 import { IUser } from "../../interfaces/user";
+import { useRouter, usePathname } from "next/navigation";
 
 interface Props {
     dict: any;
@@ -14,6 +15,12 @@ interface Props {
 
 export default function ActionsGroup({ iAmAdmin, group, me, dict, token }: Props) {
     const [openModalGetOut, setOpenModalGetOut] = useState(false);
+    const router = useRouter();
+    const path = usePathname();
+
+    const handleGroupIdRedirect = (groupId: number) => {
+        router.push(`${path}/${groupId}`);
+    };
 
     return (
         <div
@@ -23,6 +30,7 @@ export default function ActionsGroup({ iAmAdmin, group, me, dict, token }: Props
             {iAmAdmin && (
                 <button
                     type="button"
+                    onClick={() => handleGroupIdRedirect(group?.id)}
                     className="flex items-center px-2 py-1 rounded-md hover:bg-gray-100 text-gray-600 hover:text-gray-900">
                     <PencilSquareIcon className="w-5 h-5" />
                     <span className="text-xs font-semibold pl-1"> {dict?.group?.edit}</span>

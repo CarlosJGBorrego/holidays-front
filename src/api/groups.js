@@ -22,7 +22,6 @@ export async function apiCreateGroup(data, token) {
 }
 
 export async function apiUpdateGroup(id, data, token) {
-    console.log("id", id, "data", data);
     const res = await fetch(`${ROUTE_BASE}/api/groups/${id}`, {
         method: "PUT",
         headers: {
@@ -38,6 +37,25 @@ export async function apiUpdateGroup(id, data, token) {
         error.info = await res.json();
         error.status = res.status;
         throw error;
+    }
+
+    return res.json();
+}
+
+export async function apiFindOneGroup(id, token) {
+    const res = await fetch(
+        `${ROUTE_BASE}/api/groups/${id}?populate[0]=users&populate[1]=user_groups`,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+
+    if (!res.ok) {
+        await fetch(`${ROUTE_BASE}/api/groups`);
     }
 
     return res.json();

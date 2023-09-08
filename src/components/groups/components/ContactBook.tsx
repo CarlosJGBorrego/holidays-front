@@ -2,6 +2,7 @@ import { usePathname } from "next/navigation";
 import { IGroup } from "../../interfaces/group";
 import { IUser } from "../../interfaces/user";
 import ActionsGroup from "./ActionsGroup";
+import CardUser from "./CardUser";
 
 interface Props {
     group: IGroup;
@@ -94,27 +95,12 @@ export default function ContactBook({ group, idAdmin, me, dict, token }: Props) 
 
                         <ul role="list" className="divide-y divide-gray-100">
                             {group?.array.map((person: IUser) => (
-                                <li key={person?.email} className="flex gap-x-4 px-4 py-5">
-                                    <img
-                                        className="h-12 w-12 flex-none rounded-full bg-gray-50"
-                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                        alt=""
-                                    />
-                                    <div className="min-w-0">
-                                        <p className="text-sm font-semibold leading-6 text-gray-900 capitalize">
-                                            {person?.username}
-
-                                            {idAdmin === person?.id && (
-                                                <span className="pl-2 text-emerald-500 font-medium text-xs">
-                                                    (Admin)
-                                                </span>
-                                            )}
-                                        </p>
-                                        <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                                            {person?.email}
-                                        </p>
-                                    </div>
-                                </li>
+                                <CardUser
+                                    key={person?.email}
+                                    person={person}
+                                    idAdmin={idAdmin}
+                                    idUser={userAdmin?.id!}
+                                />
                             ))}
                         </ul>
                     </div>

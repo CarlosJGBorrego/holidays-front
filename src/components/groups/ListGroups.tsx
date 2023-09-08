@@ -3,6 +3,7 @@
 import { IGroup } from "../interfaces/group";
 import { IUser } from "../interfaces/user";
 import { IUserGroup } from "../interfaces/userGroups";
+import { getIdAdmin } from "../utils/getIdAdmin";
 import Group from "./Group";
 
 interface Props {
@@ -14,14 +15,6 @@ interface Props {
 }
 
 export default function ListGroups({ groups, dict, admins, me, token }: Props) {
-    const getIdAdmin = (idGroup: number) => {
-        const idAdminUser = admins?.find(
-            (userGroup: IUserGroup) => userGroup?.groups?.id === idGroup
-        )?.users?.id;
-
-        return idAdminUser!;
-    };
-
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {groups?.map((group: IGroup) => {
@@ -30,7 +23,7 @@ export default function ListGroups({ groups, dict, admins, me, token }: Props) {
                         key={group?.id}
                         dict={dict}
                         group={group}
-                        idAdmin={getIdAdmin(group?.id)}
+                        idAdmin={getIdAdmin(admins, group?.id)}
                         me={me}
                         token={token}
                     />

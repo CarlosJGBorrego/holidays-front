@@ -9,6 +9,7 @@ import {
     apiUpdateGroup,
     apiDeleteGroup,
     apiDeleteUserGroup,
+    apiFindOneGroup,
 } from "./groups";
 
 export const ROUTE_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -29,4 +30,5 @@ export {
     apiUpdateGroup,
     apiDeleteGroup,
     apiDeleteUserGroup,
+    apiFindOneGroup,
 };

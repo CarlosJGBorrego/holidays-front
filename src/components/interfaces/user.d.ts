@@ -14,3 +14,8 @@ export interface IUser {
     createdAt: Date;
     updatedAt: Date;
 }
+
+export interface IUserExtended {
+    id: number;
+    attributes: IUser;
+}
