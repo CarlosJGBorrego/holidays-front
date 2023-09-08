@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { useAuthContext } from "@/contexts/authContext";
 import { Actions } from "@/components/notifications/getActions";
 import { TypeNotification } from "@/components/notifications/getTypeNotification";
-import { IGroup } from "../interfaces/group";
+import { IGroup } from "../../interfaces/group";
 import { apiDeleteGroup, apiDeleteUserGroup, apiUpdateGroup } from "@/api";
-import { IUser } from "../interfaces/user";
+import { IUser } from "../../interfaces/user";
 
 interface Props {
     open: boolean;

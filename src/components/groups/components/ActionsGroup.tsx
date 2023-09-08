@@ -1,8 +1,8 @@
 import { ArrowLeftOnRectangleIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import ModalGetOut from "./ModalGetOut";
-import { IGroup } from "../interfaces/group";
-import { IUser } from "../interfaces/user";
+import { IGroup } from "../../interfaces/group";
+import { IUser } from "../../interfaces/user";
 
 interface Props {
     dict: any;

@@ -29,14 +29,20 @@ export default async function Page({ params: { lang } }: Props) {
                     </h1>
                     <ul className="space-y-1">
                         <li>1. Borrar en cascada los holidays cuando se elimina un usuario.</li>
-                        <li>2. Añadir rol admin a la persona que cree un grupo. ✔️</li>
+                        <li>2. Grupos y rol Admin ✔️</li>
                         <li className="ml-5">
-                            2.1 Si se elimina a esa persona, comprobar si hay mas gente en el grupo,
-                            sino hay eliminar grupo.
+                            2.1 En caso de que haya más gente, asignar el rol a otra persona
+                            previamente.
                         </li>
                         <li className="ml-5">
-                            2.2 En caso de que haya más gente, asignar el admin al siguiente de la
-                            lista.
+                            2.2 Añadir prop color a grupos y que solo el admin del grupo pueda
+                            editar, expulsar gente o añadir.
+                        </li>
+                        <li className="ml-5">
+                            2.3 Agregar el color correspondiente al grupo en BubbleCalendar.
+                        </li>
+                        <li className="ml-5">
+                            2.4 No permitir acceso a usuarios que no sean Admin en group/id
                         </li>
                         <li>3. Añadir propiedad Image a un User ✔️ .</li>
                         <li className="ml-5">3.1 Habilitar el cambiar la imagen del avatar.</li>
@@ -46,13 +52,6 @@ export default async function Page({ params: { lang } }: Props) {
                         <li className="ml-5">
                             3.3 Subir la imagen a Cloudinary o similar para almacenar las imagenes
                             subidas por los usuarios.
-                        </li>
-                        <li>
-                            4. Añadir prop color a grupos y que solo el admin del grupo pueda
-                            editar, expulsar gente o añadir.
-                        </li>
-                        <li className="ml-5">
-                            4.1 Agregar el color correspondiente al grupo en BubbleCalendar.
                         </li>
                     </ul>
                 </div>

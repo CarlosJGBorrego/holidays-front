@@ -1,6 +1,6 @@
 import { apiAdminsGroups, apiGroupsByUser, apiProfile } from "@/api";
 import ListGroups from "@/components/groups/ListGroups";
-import ModalCreateGroup from "@/components/groups/ModalCreateGroup";
+import ModalCreateGroup from "@/components/groups/components/ModalCreateGroup";
 import { IGroup } from "@/components/interfaces/group";
 import { IUser } from "@/components/interfaces/user";
 import { IUserGroup } from "@/components/interfaces/userGroups";

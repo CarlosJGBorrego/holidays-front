@@ -5,12 +5,12 @@ import { Fragment, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IUser } from "@/components/interfaces/user";
-import { apiCreateGroup, apiCreateHoliday, apiCreateUserGroup } from "@/api";
+import { apiCreateGroup, apiCreateUserGroup } from "@/api";
 import { useAuthContext } from "@/contexts/authContext";
 import { useRouter } from "next/navigation";
 import { Actions } from "@/components/notifications/getActions";
 import { TypeNotification } from "@/components/notifications/getTypeNotification";
-import { IGroup } from "../interfaces/group";
+import { IGroup } from "../../interfaces/group";
 
 interface Props {
     dict: any;

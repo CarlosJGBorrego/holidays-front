@@ -1,6 +1,6 @@
 import { usePathname } from "next/navigation";
-import { IGroup } from "../interfaces/group";
-import { IUser } from "../interfaces/user";
+import { IGroup } from "../../interfaces/group";
+import { IUser } from "../../interfaces/user";
 import ActionsGroup from "./ActionsGroup";
 
 interface Props {

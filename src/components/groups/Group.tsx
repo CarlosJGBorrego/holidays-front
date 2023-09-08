@@ -3,7 +3,7 @@
 import { Disclosure } from "@headlessui/react";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { IGroup } from "../interfaces/group";
-import ContactBook from "./ContactBook";
+import ContactBook from "./components/ContactBook";
 import { IUser } from "../interfaces/user";
 
 interface Props {
