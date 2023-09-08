@@ -99,7 +99,7 @@ export default function ContactBook({ group, idAdmin, me, dict, token }: Props) 
                                     key={person?.email}
                                     person={person}
                                     idAdmin={idAdmin}
-                                    idUser={userAdmin?.id!}
+                                    idUser={person?.id!}
                                 />
                             ))}
                         </ul>
